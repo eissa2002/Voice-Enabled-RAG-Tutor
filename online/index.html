@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Voice Chatbot</title>
+</head>
+
+<body>
+    <h1>Voice-Enabled RAG Tutor</h1>
+
+    <!-- Avatar video -->
+    <video id="avatar" width="300" autoplay loop muted>
+        <source id="avatar-src" src="/static/avatar waiting.mp4" type="video/mp4" />
+    </video>
+
+    <!-- File input for recording/uploading -->
+    <p>
+        <label>Upload a WAV question:
+            <input type="file" id="audioInput" accept=".wav" />
+        </label>
+        <button id="askBtn">Ask</button>
+    </p>
+
+    <!-- Display transcript and answer -->
+    <pre id="transcript"></pre>
+    <p id="answer"></p>
+
+    <script>
+        const askBtn = document.getElementById("askBtn");
+        const audioInput = document.getElementById("audioInput");
+        const transcriptEl = document.getElementById("transcript");
+        const answerEl = document.getElementById("answer");
+        const avatarVideo = document.getElementById("avatar");
+        const avatarSrc = document.getElementById("avatar-src");
+
+        askBtn.onclick = async () => {
+            if (!audioInput.files.length) {
+                alert("Please select a WAV file first.");
+                return;
+            }
+            // Switch to waiting avatar
+            avatarSrc.src = "/static/avatar waiting.mp4";
+            avatarVideo.load();
+
+            // Build form data
+            const form = new FormData();
+            form.append("audio", audioInput.files[0]);
+
+            // Call /ask
+            const res = await fetch("/ask/", {
+                method: "POST",
+                body: form
+            });
+            const json = await res.json();
+
+            // Show transcript & answer
+            transcriptEl.textContent = "You said:\n" + json.transcript;
+            answerEl.textContent = json.answer;
+
+            // Switch to speaking avatar
+            avatarSrc.src = json.avatar_speaking;
+            avatarVideo.load();
+
+            // Play the TTS audio
+            const audio = new Audio(json.audio_url);
+            audio.onended = () => {
+                // Back to waiting after done
+                avatarSrc.src = "/static/avatar waiting.mp4";
+                avatarVideo.load();
+            };
+            audio.play();
+        };
+    </script>
+</body>
+
+</html>
