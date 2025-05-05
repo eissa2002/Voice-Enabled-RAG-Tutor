@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Voice-Enabled RAG Tutor</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        #avatar {
+            display: block;
+            margin: 0 auto 1.5rem;
+            width: 180px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .controls {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .controls button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.4rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease-in-out;
+        }
+
+        .controls button:disabled {
+            background: #a5d6a7;
+            cursor: not-allowed;
+        }
+
+        .controls button:hover:not(:disabled) {
+            background: #43a047;
+        }
+
+        .panel {
+            background: #fafafa;
+            border-left: 4px solid #4caf50;
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .panel strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        #responseAudio {
+            width: 100%;
+            margin-top: 1rem;
+            outline: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            #avatar {
+                width: 120px;
+            }
+
+            .controls button {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Voice-Enabled RAG Tutor</h1>
+
+        <!-- avatar video -->
+        <video id="avatar" src="/static/avatar waiting.mp4" autoplay loop muted></video>
+
+        <!-- record / stop -->
+        <div class="controls">
+            <button id="recordBtn">🎤 Record Question</button>
+            <button id="stopBtn" disabled>⏹ Stop</button>
+        </div>
+
+        <!-- transcript & answer panels -->
+        <div class="panel" id="transcript">
+            <strong>Transcript:</strong>
+            <div id="txt">—</div>
+        </div>
+        <div class="panel" id="answer">
+            <strong>Answer:</strong>
+            <div id="ans">—</div>
+        </div>
+
+        <!-- TTS audio playback -->
+        <audio id="responseAudio" controls></audio>
+    </div>
+
+    <script>
+        let mediaRecorder, audioChunks = [], userStream;
+
+        const avatarEl = document.getElementById("avatar");
+        const recordBtn = document.getElementById("recordBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const txtEl = document.getElementById("txt");
+        const ansEl = document.getElementById("ans");
+        const audioEl = document.getElementById("responseAudio");
+
+        // Start recording
+        recordBtn.addEventListener("click", async () => {
+            userStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(userStream, { mimeType: "audio/webm" });
+            audioChunks = [];
+
+            mediaRecorder.addEventListener("dataavailable", e => {
+                if (e.data.size > 0) audioChunks.push(e.data);
+            });
+
+            mediaRecorder.addEventListener("stop", async () => {
+                const blob = new Blob(audioChunks, { type: "audio/webm" });
+                const form = new FormData();
+                form.append("audio", blob, "question.webm");
+
+                // switch to “speaking” avatar
+                avatarEl.src = "/static/avatar talking.mp4";
+
+                // send to backend
+                const res = await fetch("/ask/", { method: "POST", body: form });
+                const data = await res.json();
+
+                // display results
+                txtEl.textContent = data.transcript;
+                ansEl.textContent = data.answer;
+                audioEl.src = data.audio_url;
+
+                // coordinate avatar with playback
+                audioEl.onplay = () => (avatarEl.src = "/static/avatar talking.mp4");
+                audioEl.onended = () => (avatarEl.src = "/static/avatar waiting.mp4");
+                audioEl.play();
+
+                // cleanup mic
+                userStream.getTracks().forEach(t => t.stop());
+                recordBtn.disabled = false;
+            });
+
+            mediaRecorder.start();
+            recordBtn.disabled = true;
+            stopBtn.disabled = false;
+        });
+
+        // Stop recording
+        stopBtn.addEventListener("click", () => {
+            stopBtn.disabled = true;
+            mediaRecorder.stop();
+        });
+    </script>
+</body>
+
+</html>
