@@ -1,0 +1,10 @@
+langchain>=0.3.25
+langchain_community
+openai
+chromadb
+sentence-transformers
+whisper
+python-pptx       # for manual PPTX parsing
+pypdf             # for PyPDFLoader
+PyMuPDF         # for PyMuPDFLoader
+python-docx        # for DocxLoader

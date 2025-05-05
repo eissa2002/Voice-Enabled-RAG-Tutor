@@ -1,0 +1,10 @@
+{
+  "page_content": "Architecture of Convolutional Neural Network\nInput \nimage\nConvolutional \nlayer\nConvolutional \nlayer\nPooling \nlayer\nPooling \nlayer\nFully connected \nlayer\nThree-feature \nimage\nThree-feature \nimage\nFive-feature \nimage\nFive-feature \nimage\nOutput \nlayer\nConvolution + \nnonlinearity\nMax pooling\nConvolution layers + pooling layers Fully connected layer\nMulti-\ncategory\nVectorization\nBird\nSunset\nDog\nCat\nPbird\nPsunset\nPdog\nPcat\n\nSingle-Filter Calculation\n• Description of convolution calculation\n\nSingle-Filter Calculation (cont.)\n• Demonstration of the convolution calculation\nHan Bingtao, 2017, Convolutional Neural Network",
+  "metadata": {
+    "sources": [
+      "03_DL for Computer Vision.pdf (page 4)",
+      "03_DL for Computer Vision.pdf (page 5)",
+      "03_DL for Computer Vision.pdf (page 6)"
+    ]
+  }
+}

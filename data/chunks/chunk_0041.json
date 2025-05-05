@@ -1,0 +1,10 @@
+{
+  "page_content": "Eigenvalues and Eigenvectorsof the \nAuto-correlation Matrix\nl- £ E(u, v) = uT Mu £ l+\nwhere            and          are the two eigenvalues of      . \n\n\nM\nThe eigenvector          corresponding to      \ngives the direction of largest increase in E, \nwhile the eigenvector         corresponding to    \ngives the direction of smallest increase in E.\n\n\ne\ne\nlower limit upper limit\n\nHow are +, e+, -, and e+ relevant for \nfeature detection?\nWe want E(u,v) to be large for small shifts in all directions\nThus, the minimum of E(u,v) should be large, this minimum is given by the \nsmaller eigenvalue - of M\n\nFeature Detection Algorithm\n•Compute the gradient at each point in the image\n•Create the M matrix for each point from the gradients in a window \n•Compute the eigenvalues of each M\n•Find points with large response (- > threshold)\n•Choose those points as features where - is a local maximum",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 39)",
+      "04_Feature Detection and Matching.pdf (page 40)",
+      "04_Feature Detection and Matching.pdf (page 41)"
+    ]
+  }
+}

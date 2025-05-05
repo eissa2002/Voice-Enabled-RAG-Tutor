@@ -1,0 +1,10 @@
+{
+  "page_content": "f value (red = high, blue = low)\n\nThreshold (f > value)\n\nFind Local Maxima of f",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 45)",
+      "04_Feature Detection and Matching.pdf (page 46)",
+      "04_Feature Detection and Matching.pdf (page 47)"
+    ]
+  }
+}

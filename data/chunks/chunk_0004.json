@@ -1,0 +1,10 @@
+{
+  "page_content": "Object Detection\n•The main task in object detection is to put accurate bounding boxes around all \nthe objects of interest and to correctly label such objects.\n\nObject Detection: R-CNN\n•One of the earliest object detectors based on neural networks is R-CNN, the \nRegion-based Convolutional Network\n◦ This detector starts by extracting about 2,000 region proposals using the selective search \nalgorithm. Each proposed regions is then rescaled (warped) to a 224 square image and \npassed through an AlexNet or VGG neural network with a support vector machine (SVM) final \nclassifier.\n\nObject Detection: Fast R-CNN\n•Fast R-CNN interchanges the convolutional neural network and region \nextraction stages and replaces the SVM with some fully connected (FC) layers, \nwhich compute both an object class and a bounding box refinement",
+  "metadata": {
+    "sources": [
+      "02_Object Detection.pdf (page 9)",
+      "02_Object Detection.pdf (page 10)",
+      "02_Object Detection.pdf (page 11)"
+    ]
+  }
+}

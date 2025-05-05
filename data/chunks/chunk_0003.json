@@ -1,0 +1,10 @@
+{
+  "page_content": "Image Classification: Feature-based \nmethods\n•Bag of words (also known as bag of features or bag of keypoints)\n◦ computes the distribution (histogram) of visual words found in the query image\n◦ compares this distribution to those found in the training images\n•The biggest difference from instance recognition is the absence of a geometric \nverification stage since individual instances of generic visual categories, have \nrelatively little spatial coherence to their features.\n\nImage Classification: Feature-based \nmethods (cont.)\n\nImage Classification: Feature-based \nmethods (cont.)\n•Their original system used affine covariant regions and SIFT(Scale-invariant \nfeature transform)  descriptors, k-means visual vocabulary construction, and \nboth a naive Bayesian classifier and support vector machines for classification.\n•The debate about whether to use quantized feature descriptors or continuous \ndescriptors and also whether to use sparse or dense features went on for many \nyears.",
+  "metadata": {
+    "sources": [
+      "02_Object Detection.pdf (page 6)",
+      "02_Object Detection.pdf (page 7)",
+      "02_Object Detection.pdf (page 8)"
+    ]
+  }
+}

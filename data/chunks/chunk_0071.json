@@ -1,0 +1,10 @@
+{
+  "page_content": "Richard Szeliski Image Stitching 55\nRotational mosaics\n– Directly optimize rotation and focal length\n– Advantages:\n• ability to build full-view \npanoramas\n• easier to control interactively\n• more stable and accurate \nestimates\n\nRichard Szeliski Image Stitching 56\nRotational mosaic\n• Projection equations\n1. Project from image to 3D ray\n• (x0,y0,z0) = (u0-uc,v0-vc,f)\n2. Rotate the ray by camera motion\n• (x1,y1,z1) = R01 (x0,y0,z0)\n3. Project back into new (source) image\n• (u1,v1) = (fx1/z1+uc,fy1/z1+vc)\n\nComputing homography\n• Assume we have four matched points: How do we compute homography H?\nNormalized DLT\n1. Normalize coordinates for each image\na) Translate for zero mean\nb) Scale so that average distance to origin is ~sqrt(2)\n– This makes problem better behaved numerically \n2. Compute     using DLT in normalized coordinates\n3. Unnormalize: \nTxx ~\nxTx ~\nTHTH ~1\nii Hxx \nH~",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 54)",
+      "05_Image Stitching.pdf (page 55)",
+      "05_Image Stitching.pdf (page 56)"
+    ]
+  }
+}

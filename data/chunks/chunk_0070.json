@@ -1,0 +1,10 @@
+{
+  "page_content": "52\nSimple example: fit a line\n• Use biggest set of inliers\n• Do least-square fit\n52\n\nRANSAC\nRed: \nrejected by 2nd nearest neighbor criterion\nBlue:\nRansac outliers\nYellow:\ninliers\n\nHow many rounds? \n• If we have to choose s samples each time\n– with an outlier ratio e\n– and we want the right answer with probability p",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 51)",
+      "05_Image Stitching.pdf (page 52)",
+      "05_Image Stitching.pdf (page 53)"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "page_content": "Encoding blend weights:   I(x,y) = (R, G, B, ) \ncolor at p =\nImplement this in two steps:\n1.  accumulate:  add up the ( premultiplied) RGB values at each pixel\n2.  normalize:  divide each pixel’s accumulated RGB by its  value\nAlpha Blending\nOptional:  see Blinn (CGA, 1994) for details:\nhttp://ieeexplore.ieee.org/iel1/38/7531/00310740.pdf?isNumber\n=7531&prod=JNL&arnumber=310740&arSt=83&ared=87&arAut\nhor=Blinn%2C+J.F. \nI1\nI2\nI3\np\n\nChoosing seams\nImage 1\nImage 2\nx x\nim1 im2\n• Easy method\n– Assign each pixel to image with nearest center\n\nChoosing seams\n• Easy method\n– Assign each pixel to image with nearest center\n– Create a mask: \n– Smooth boundaries ( “feathering”): \n– Composite\nImage 1\nImage 2\nx x\nim1 im2",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 87)",
+      "05_Image Stitching.pdf (page 88)",
+      "05_Image Stitching.pdf (page 89)"
+    ]
+  }
+}

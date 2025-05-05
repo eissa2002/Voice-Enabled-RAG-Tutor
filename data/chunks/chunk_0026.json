@@ -1,0 +1,10 @@
+{
+  "page_content": "Image Matching\n\nIntroduction\n• Feature detection and matching are an essential component of many computer vision \napplications.\n• Specific locations in the images, such as mountain peaks, building corners, doorways, \nor interestingly shaped patches of snow. These kinds of localized features are often \ncalled keypoint features or interest points (or even corners) and are often described by \nthe appearance of pixel patches surrounding the point location \n• Edges, e.g., the profile of mountains against the sky. These kinds of features can be \nmatched based on their orientation and local appearance (edge profiles) and can also \nbe good indicators of object boundaries and occlusion events in image sequences.\n◦ Edges can be grouped into longer curves and contours, which can then be tracked.\n◦ They can also be grouped into straight line segments, which can be directly matched or analyzed \nto find vanishing points and hence internal and external camera parameters.",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 3)",
+      "04_Feature Detection and Matching.pdf (page 4)",
+      "04_Feature Detection and Matching.pdf (page 5)"
+    ]
+  }
+}

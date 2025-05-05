@@ -1,0 +1,10 @@
+{
+  "page_content": "The quadratic approximation simplifies to\n2\n2\n,\n( , )\nx x y\nxy x y y\nI I IM w x y I I I\n \n\nwhere M is a second moment matrix computed from image derivatives:\n\n\n\n v\nuMvuvuE ][),(\nM\nCorner Detection: Mathematics",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 27)",
+      "04_Feature Detection and Matching.pdf (page 28)",
+      "04_Feature Detection and Matching.pdf (page 29)"
+    ]
+  }
+}

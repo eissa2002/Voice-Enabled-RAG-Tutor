@@ -1,0 +1,10 @@
+{
+  "page_content": "Pooling Layer\n• Pooling combines nearby units to reduce the size of the input on the next layer, reducing dimensions. Common pooling includes\nmax pooling and average pooling. When max pooling is used, the maximum value in a small square area is selected as the\nrepresentative of this area, while the mean value is selected as the representative when average pooling is used. The side of this\nsmall area is the pool window size. The following figure shows the max pooling operation whose pooling window size is 2.\nSliding direction",
+  "metadata": {
+    "sources": [
+      "03_DL for Computer Vision.pdf (page 7)",
+      "03_DL for Computer Vision.pdf (page 8)",
+      "03_DL for Computer Vision.pdf (page 9)"
+    ]
+  }
+}

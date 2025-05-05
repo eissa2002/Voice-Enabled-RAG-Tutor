@@ -1,0 +1,10 @@
+{
+  "page_content": "Richard Szeliski Image Stitching 22\nInverse Warping\n• Get each pixel g(x’) from its corresponding location x’ = h(x) in \nf(x)\n• What if pixel comes from “between” two pixels?\n• Answer: resample color value from \ninterpolated source image\nf(x) g(x’)x x’\nh-1(x)\n\nInterpolation\n• Possible interpolation filters:\n– nearest neighbor\n– bilinear\n– bicubic (interpolating)\n\nMotion models\nTranslation\n2 unknowns\nAffine\n6 unknowns\nPerspective\n8 unknowns\n3D rotation\n3 unknowns",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 21)",
+      "05_Image Stitching.pdf (page 22)",
+      "05_Image Stitching.pdf (page 23)"
+    ]
+  }
+}

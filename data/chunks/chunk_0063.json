@@ -1,0 +1,10 @@
+{
+  "page_content": "Least squares formulation\n• For each point\n• we define the residuals as\n\nLeast squares formulation\n• Goal: minimize sum of squared residuals\n• “Least squares”solution\n• For translations, is equal to mean displacement\n\nLeast squares\n• Find t that minimizes \n• To solve, form the normal equations",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 30)",
+      "05_Image Stitching.pdf (page 31)",
+      "05_Image Stitching.pdf (page 32)"
+    ]
+  }
+}

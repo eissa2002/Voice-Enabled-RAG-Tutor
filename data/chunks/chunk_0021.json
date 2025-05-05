@@ -1,0 +1,10 @@
+{
+  "page_content": "InfoGAN\n•The discriminator in an InfoGAN does not have access to the class id, but must \ninstead infer it from the samples it is given\n\nU-Nets and Feature Pyramid Networks\n•Image downsampling and upsampling can be combined to achieve a variety of \nmulti-resolution image processing tasks output to be a full-resolution image. \n•Examples of such applications include\n◦ Pixel-wise semantic labeling \n◦ Image denoising and super-resolution \n◦ Monocular depth inference \n◦ Neural style transfer\n\nDeconvolution Network",
+  "metadata": {
+    "sources": [
+      "03_DL for Computer Vision.pdf (page 25)",
+      "03_DL for Computer Vision.pdf (page 26)",
+      "03_DL for Computer Vision.pdf (page 27)"
+    ]
+  }
+}

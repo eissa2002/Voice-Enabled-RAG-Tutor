@@ -1,0 +1,10 @@
+{
+  "page_content": "Scale Invariant Feature Transform\n• Take 16x16 square window around detected feature\n• Compute edge orientation (angle of the gradient - 90) for each pixel\n• Throw out weak edges (threshold gradient magnitude)\n• Create histogram of surviving edge orientations\nby David Lowe\n0 2\nangle histogram\n\nScale Invariant Feature Transform\n• Divide the 16x16 window into a 4x4 grid of cells (2x2 case shown below)\n• Compute an orientation histogram for each cell\n• 16 cells * 8 orientations = 128 dimensional descriptor\nby David Lowe",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 63)",
+      "04_Feature Detection and Matching.pdf (page 64)",
+      "04_Feature Detection and Matching.pdf (page 65)"
+    ]
+  }
+}

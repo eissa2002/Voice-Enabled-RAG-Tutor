@@ -1,0 +1,10 @@
+{
+  "page_content": "RANSAC for Homography\nFinal Matched Points\n\nRANSAC for Homography\n\nRichard Szeliski Image Stitching 63\nDetermining the focal length\n1. Initialize from homography H\n(see text or [SzSh’97])\n2. Use camera’s EXIF tags (approx.)\n3. Use a tape measure\n4. Ask your instructor\n1m4m",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 60)",
+      "05_Image Stitching.pdf (page 61)",
+      "05_Image Stitching.pdf (page 62)"
+    ]
+  }
+}

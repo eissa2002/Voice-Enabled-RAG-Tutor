@@ -1,0 +1,10 @@
+{
+  "page_content": "Choosing seams\n• Better method: dynamic program to find seam along well-\nmatched regions\nIllustration: http://en.wikipedia.org/wiki/File:Rochester_NY .jpg\n\nGain compensation\n• Simple gain adjustment\n– Compute average RGB intensity of each image in \noverlapping region\n– Normalize intensities by ratio of averages\n\nBlending Comparison",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 90)",
+      "05_Image Stitching.pdf (page 91)",
+      "05_Image Stitching.pdf (page 92)"
+    ]
+  }
+}

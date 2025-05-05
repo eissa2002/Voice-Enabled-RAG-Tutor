@@ -1,0 +1,10 @@
+{
+  "page_content": "Generative Adversarial Network (GAN)\n• Generative Adversarial Network is a unsupervised generative framework that trains generator G and discriminator D through\nthe adversarial process. Through the adversarial process, the discriminator can tell whether the sample from the generator is\nfake or real. GAN adopts a mature BP algorithm.\n• Generator G: The input is noise z, which complies with manually selected prior probability distribution, such as even\ndistribution and Gaussian distribution. The generator adopts the network structure of the multilayer perceptron (MLP), uses\nmaximum likelihood estimation (MLE) parameters to represent the derivable mapping G(z), and maps the input space to the\nsample space.\n• Discriminator D: The input is the real sample x and the fake sample G(z), which are tagged as real and fake respectively. The\nnetwork of the discriminator can use the MLP carrying parameters. The output is the probability D(G(z)) that determines",
+  "metadata": {
+    "sources": [
+      "03_DL for Computer Vision.pdf (page 19)",
+      "03_DL for Computer Vision.pdf (page 20)",
+      "03_DL for Computer Vision.pdf (page 21)"
+    ]
+  }
+}

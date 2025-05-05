@@ -1,0 +1,10 @@
+{
+  "page_content": "Recognizing Panoramas\nInput: N images\n1. Extract SIFT points, descriptors from all images\n2. Find K-nearest neighbors for each point (K=4)\n3. For each image\na) Select M candidate matching images by counting matched keypoints\n(m=6)\nb) Solve homography Hij for each matched image\nc) Decide if match is valid (ni >  8  +   0.3  nf )\n# inliers # keypoints in \noverlapping area\n\nRecognizing Panoramas (cont.)\n(now we have matched pairs of images)\n4. Find connected components\n\nFinding the panoramas",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 96)",
+      "05_Image Stitching.pdf (page 97)",
+      "05_Image Stitching.pdf (page 98)"
+    ]
+  }
+}

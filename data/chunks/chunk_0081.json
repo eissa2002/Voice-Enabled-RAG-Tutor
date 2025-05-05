@@ -1,0 +1,10 @@
+{
+  "page_content": "Multiband blending\n1. Compute Laplacian\npyramid of images and \nmask\n2. Create blended image \nat each level of \npyramid\n3. Reconstruct complete \nimage\nLaplacian pyramids\n\nBlending comparison (IJCV 2007)\n\nPoisson Image Editing\n• For more info:  Perez et al, SIGGRAPH 2003\n– http://research.microsoft.com/vision/cambridge/papers/perez_siggraph03.pdf",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 84)",
+      "05_Image Stitching.pdf (page 85)",
+      "05_Image Stitching.pdf (page 86)"
+    ]
+  }
+}

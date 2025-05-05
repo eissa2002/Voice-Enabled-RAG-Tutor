@@ -1,0 +1,10 @@
+{
+  "page_content": "Choosing interest points\n\nStable (Good) Features: High Accuracy in Localization\n\nStable (Good) Features\n“flat” region:\nno change in all \ndirections\n“edge”:  \nno change along \nthe edge direction\n“corner”:\nsignificant change in all \ndirections (uniqueness)\nGood featureAperture problem",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 15)",
+      "04_Feature Detection and Matching.pdf (page 16)",
+      "04_Feature Detection and Matching.pdf (page 17)"
+    ]
+  }
+}

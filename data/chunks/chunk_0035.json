@@ -1,0 +1,10 @@
+{
+  "page_content": "Taylor Expansion\n\n\n\n\n\n\n\n\n\n\n\n v\nu\nEE\nEEvuE\nEvuEvuE\nvvuv\nuvuu\nv\nu\n)0,0()0,0(\n)0,0()0,0(][2\n1\n)0,0(\n)0,0(][)0,0(),(\n \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nSecond-order Taylor expansion of E(u,v) about (0,0):\n \n \n  ),(),(),(),(2\n),(),(),(2),(\n),(),(),(),(2\n),(),(),(2),(\n),(),(),(),(2),(\n,\n,\n,\n,\n,\nvyuxIyxIvyuxIyxw\nvyuxIvyuxIyxwvuE\nvyuxIyxIvyuxIyxw\nvyuxIvyuxIyxwvuE\nvyuxIyxIvyuxIyxwvuE\nxy\nyx\nxy\nyx\nuv\nxx\nyx\nxx\nyx\nuu\nx\nyx\nu\n\n\n\n\n\n\n\n\n\n\nCorner Detection: Mathematics",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 24)",
+      "04_Feature Detection and Matching.pdf (page 25)",
+      "04_Feature Detection and Matching.pdf (page 26)"
+    ]
+  }
+}

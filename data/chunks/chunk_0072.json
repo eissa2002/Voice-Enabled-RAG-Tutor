@@ -1,0 +1,10 @@
+{
+  "page_content": "Computing homography\n• Assume we have matched points with outliers: How do \nwe compute homography H?\nAutomatic Homography Estimation with RANSAC\n1. Choose number of samples N\n2. Choose 4 random potential matches\n3. Compute H using normalized DLT\n4. Project points from x to x’ for each potentially \nmatching pair:\n5. Count points with projected distance  <  t\n– E.g., t = 3 pixels\n6. Repeat steps 2-5 N times\n– Choose H with most inliers\nHZ Tutorial ‘99\nii Hxx \n\nAutomatic Image Stitching\n1. Compute interest points on each image\n2. Find candidate matches\n3. Estimate homography H using matched points and RANSAC with \nnormalized DLT\n4. Project each image onto the same surface and blend\n\nRANSAC for Homography\nInitial Matched Points",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 57)",
+      "05_Image Stitching.pdf (page 58)",
+      "05_Image Stitching.pdf (page 59)"
+    ]
+  }
+}

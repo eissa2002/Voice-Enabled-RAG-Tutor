@@ -1,0 +1,10 @@
+{
+  "page_content": "Feature Distance\n• SSD is commonly used to measure the difference between two features f1 and f2\n• Use ratio-of-distance = SSD(f1, f2) / SSD(f1, f2’) as a measure of reliability of the \nfeature match:\n◦ f2 is best SSD match to f1 in I2\n◦ f2’  is 2nd best SSD match to f1 in I2\n◦ Ratio-of-distance is small for ambiguous matches\nf1 f2f2\n'\nI1 I2\n\nKey trade-offs\nMore Repeatable More Points\nA1\nA2 A3\nDetection of interest points\nMore Distinctive More Flexible\nDescription of patches\nRobust to occlusion\nWorks with less texture\nMinimize wrong matches Robust to expected variations\nMaximize correct matches\nRobust detection\nPrecise localization",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 69)",
+      "04_Feature Detection and Matching.pdf (page 70)",
+      "04_Feature Detection and Matching.pdf (page 71)"
+    ]
+  }
+}

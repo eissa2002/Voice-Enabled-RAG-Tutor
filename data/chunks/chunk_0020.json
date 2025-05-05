@@ -1,0 +1,10 @@
+{
+  "page_content": "conditional GAN (cGAN)\n•the network iterates (during training) \nover all the classes that we wish to \nsynthesize. \n•The generator G gets both a class id c \nand a random noise vector z as input, \nand the discriminator D gets the class \nid as well and needs to determine if \nits input is a real member of the \ngiven class",
+  "metadata": {
+    "sources": [
+      "03_DL for Computer Vision.pdf (page 22)",
+      "03_DL for Computer Vision.pdf (page 23)",
+      "03_DL for Computer Vision.pdf (page 24)"
+    ]
+  }
+}

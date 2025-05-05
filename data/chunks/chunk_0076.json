@@ -1,0 +1,10 @@
+{
+  "page_content": "Planar Projection\nPlanar\n\nCylindrical Mapping\nf\nf\nx\nx\n1) For red image: compute h, theta on cylindrical surface from (u, v)\n2) For green image: map to first image plane, than map to cylindrical surface\n\nCylindrical Projection\nCylindrical",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 69)",
+      "05_Image Stitching.pdf (page 70)",
+      "05_Image Stitching.pdf (page 71)"
+    ]
+  }
+}

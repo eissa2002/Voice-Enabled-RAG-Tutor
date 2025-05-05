@@ -1,0 +1,10 @@
+{
+  "page_content": "Solving for translations\n• Using least squares\n2n x 2 2 x 1 2n x 1\n\nAffine transformations\n• How many unknowns?\n• How many equations per match?\n• How many matches do we need?\n\nAffine transformations\n• Residuals:\n• Cost function:",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 33)",
+      "05_Image Stitching.pdf (page 34)",
+      "05_Image Stitching.pdf (page 35)"
+    ]
+  }
+}

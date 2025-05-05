@@ -1,0 +1,10 @@
+{
+  "page_content": "CNN Example\n•For the following CNN \narchitecture calculate the \noutput volume size and \nthe number of parameters \nfor each layer\n•The CNN doesn’t apply \nPadding and Stride = 1\nhttps://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9315927\n\nLayer 1\n•Input: colored image of size 100 x 100 x 3 (the colors channel Red, Green and \nBlue)\n◦ K = 200\n◦ F = 3\n◦ P = 0\n◦ S = 1\n•O = (W−F+2P)/S+1 = (100 –3 + 0)/1 + 1= 98\n•Output volume size = 98 x 98 x 200\n•No. of parameter = F⋅F⋅D1 = 3 x 3 x 3 = 27 for each filter\n•Total No. of Parameter = (F⋅F⋅D1)⋅K + K  = 27 X 200 + 200 = 5600\n\nLayer 2\n•Input: output of layer 1 with volume 98 x 98 x 200\n◦ K = 100\n◦ F = 3\n◦ P = 0\n◦ S = 1\n•O = (W−F+2P)/S+1 = (98 –3 + 0)/1 + 1= 96\n•Output volume size = 96 x 96 x 100\n•No. of parameter = F⋅F⋅D1 = 3 x 3 x 200 = 1800 for each filter\n•Total No. of Parameter = (F⋅F⋅D1)⋅K + K  = 1800 X 100 + 100 = 180,100",
+  "metadata": {
+    "sources": [
+      "03_DL for Computer Vision.pdf (page 13)",
+      "03_DL for Computer Vision.pdf (page 14)",
+      "03_DL for Computer Vision.pdf (page 15)"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "page_content": "Types of invariance (cont.)\n• Full Perspective\n\nHow to Achieve Invariance\n1. Make sure the detector is invariant\n◦ Harris is invariant to translation and rotation\n◦ Scale is trickier\n◦ A common approach is to detect features at many scales using a Gaussian pyramid (e.g., MOPS)\n◦ More sophisticated methods find “the best scale” to represent each feature (e.g., SIFT)\n2. Design an invariant feature descriptor\n◦ A descriptor captures the information in a region around the detected feature point\n◦ The simplest descriptor: a square window of pixels \n◦ What’s this invariant to?\n\nRotational Invariancefor Feature Descriptors\nFind dominant orientation of the image \npatch. This is given by e+, the eigenvector \nof M corresponding to +\nRotate the patch to horizontaldirection\nIntensity normalize the window by \nsubtracting the mean, dividing by the \nstandard deviation in the window\nCSE 576: Computer Vision by Matthew Brown\n8 pixels",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 57)",
+      "04_Feature Detection and Matching.pdf (page 58)",
+      "04_Feature Detection and Matching.pdf (page 59)"
+    ]
+  }
+}

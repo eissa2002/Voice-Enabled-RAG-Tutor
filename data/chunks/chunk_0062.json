@@ -1,0 +1,10 @@
+{
+  "page_content": "Mean displacement = \nSimple case: translations\nDisplacement of match i =\n\nSimple case: translations\n• System of linear equations\n– What are the knowns?  Unknowns?\n– How many unknowns?  How many equations (per match)?\n\nSimple case: translations\n• Problem: more equations than unknowns\n– “Overdetermined”system of equations\n– We will find the least squares solution",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 27)",
+      "05_Image Stitching.pdf (page 28)",
+      "05_Image Stitching.pdf (page 29)"
+    ]
+  }
+}

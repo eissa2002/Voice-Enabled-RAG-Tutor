@@ -1,0 +1,10 @@
+{
+  "page_content": " \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nI(x, y)\nE(u, v)\nE(0,0)\nw(x, y)\nChange in appearance of window w(x,y) \nfor the shift [u,v]:\nCorner Detection: Mathematics\n\n \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nIntensityShifted \nintensity\nWindow \nfunction\norWindow function w(x,y) =\nGaussian1 in window, 0 outside\nSource: R. Szeliski\nChange in appearance of window w(x,y) \nfor the shift [u,v]:\nCorner Detection: Mathematics\n\n \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nWe want to find out how this function behaves for small shifts\nChange in appearance of window w(x,y) \nfor the shift [u,v]:\nE(u, v)\nCorner Detection: Mathematics",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 21)",
+      "04_Feature Detection and Matching.pdf (page 22)",
+      "04_Feature Detection and Matching.pdf (page 23)"
+    ]
+  }
+}

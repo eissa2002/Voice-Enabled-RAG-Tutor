@@ -1,0 +1,10 @@
+{
+  "page_content": "Laplacian\nlevel\n4\nLaplacian\nlevel\n2\nLaplacian\nlevel\n0\nleft pyramid right pyramid blended pyramid\n\nLaplacian image blend\n1. Compute Laplacian pyramid\n2. Compute Gaussian pyramid on weight image (can put this in \nA channel)\n3. Blend Laplacians using Gaussian blurred weights\n4. Reconstruct the final image\n• Q: How do we compute the original weights?\n\nMultiband Blending with Laplacian Pyramid\n0\n1\n0\n1\n0\n1\nLeft pyramid Right pyramidblend\n• At low frequencies, blend slowly\n• At high frequencies, blend quickly",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 81)",
+      "05_Image Stitching.pdf (page 82)",
+      "05_Image Stitching.pdf (page 83)"
+    ]
+  }
+}

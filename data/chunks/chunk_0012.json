@@ -1,0 +1,10 @@
+{
+  "page_content": "Pooling Layer (cont.)\n• Volume Size W1×H1×D1\n• Two Hyperparameters:\n• Filter Size F\n• Stride S\n• Output volume size W2×H2×D2\n• W2= [(W1−F)]/S+1\n• H2= [(H1−F)]/S+1\n• D2=D1\n• zero parameters : it computes a certain function of the input\n\nFully Connected Layer\n• The fully connected layer is essentially a classifier. The features extracted on the convolutional layer\nand pooling layer are straightened and placed at the fully connected layer to output and classify\nresults.\n• Generally, the Softmax function is used as the activation function of the final fully connected output\nlayer to combine all local features into global features and calculate the score of each type.\nσ(z)𝑗 = 𝑒𝑧𝑗\n 𝑘𝑒𝑧𝑘\n\nCNN Example\nhttps://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9315927",
+  "metadata": {
+    "sources": [
+      "03_DL for Computer Vision.pdf (page 10)",
+      "03_DL for Computer Vision.pdf (page 11)",
+      "03_DL for Computer Vision.pdf (page 12)"
+    ]
+  }
+}

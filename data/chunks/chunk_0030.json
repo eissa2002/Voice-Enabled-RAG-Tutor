@@ -1,0 +1,10 @@
+{
+  "page_content": "Processing Stages\n• Feature detection/extraction (look for stable/accurate features)\n• Feature description (aim for invariance to transformations)\n• Feature matching (for photo collection) or tracking (for video)\n\nFeature Detection\n\nInvariant Local Features\n• Image content is transformed into local feature coordinates that are invariant to \ntranslation, rotation, scale, and other imaging parameters\nFeatures Descriptors",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 12)",
+      "04_Feature Detection and Matching.pdf (page 13)",
+      "04_Feature Detection and Matching.pdf (page 14)"
+    ]
+  }
+}
