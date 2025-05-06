@@ -1,10 +1,8 @@
 {
-  "page_content": "Feature Detection \nand Matching\nImage by kirkh.deviantart.com\n\n\n\nObject Recognition\nBy: https://dokumen.tips/",
+  "page_content": "Single-Filter Calculation (cont.)\n• Demonstration of the convolution calculation\nHan Bingtao, 2017, Convolutional Neural Network",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 0)",
-      "04_Feature Detection and Matching.pdf (page 1)",
-      "04_Feature Detection and Matching.pdf (page 2)"
+      "03_DL for Computer Vision.pdf (page 7)"
     ]
   }
 }

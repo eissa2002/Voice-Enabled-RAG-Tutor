@@ -1,10 +1,8 @@
 {
-  "page_content": "Encoding blend weights:   I(x,y) = (R, G, B, ) \ncolor at p =\nImplement this in two steps:\n1.  accumulate:  add up the ( premultiplied) RGB values at each pixel\n2.  normalize:  divide each pixel’s accumulated RGB by its  value\nAlpha Blending\nOptional:  see Blinn (CGA, 1994) for details:\nhttp://ieeexplore.ieee.org/iel1/38/7531/00310740.pdf?isNumber\n=7531&prod=JNL&arnumber=310740&arSt=83&ared=87&arAut\nhor=Blinn%2C+J.F. \nI1\nI2\nI3\np\n\nChoosing seams\nImage 1\nImage 2\nx x\nim1 im2\n• Easy method\n– Assign each pixel to image with nearest center\n\nChoosing seams\n• Easy method\n– Assign each pixel to image with nearest center\n– Create a mask: \n– Smooth boundaries ( “feathering”): \n– Composite\nImage 1\nImage 2\nx x\nim1 im2",
+  "page_content": "\n\n\n\n\n\n\n\n\n\n v\nu\nEE\nEEvuE\nEvuEvuE\nvvuv\nuvuu\nv\nu\n)0,0()0,0(\n)0,0()0,0(][2\n1\n)0,0(\n)0,0(][)0,0(),(\n \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nSecond-order Taylor expansion of E(u,v) about (0,0):\n \n \n  ),(),(),(),(2\n),(),(),(2),(\n),(),(),(),(2\n),(),(),(2),(\n),(),(),(),(2),(\n,\n,\n,\n,\n,\nvyuxIyxIvyuxIyxw\nvyuxIvyuxIyxwvuE\nvyuxIyxIvyuxIyxw\nvyuxIvyuxIyxwvuE\nvyuxIyxIvyuxIyxwvuE\nxy\nyx\nxy\nyx\nuv\nxx\nyx\nxx\nyx\nuu\nx\nyx\nu\n\n\n\n\n\n\n\n\n\n\nCorner Detection: Mathematics",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 87)",
-      "05_Image Stitching.pdf (page 88)",
-      "05_Image Stitching.pdf (page 89)"
+      "04_Feature Detection and Matching.pdf (page 27)"
     ]
   }
 }

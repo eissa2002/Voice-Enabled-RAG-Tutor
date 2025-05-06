@@ -1,10 +1,8 @@
 {
-  "page_content": "Image Matching using Feature Points\nNASA Mars Rover images\nBy: dokumen.tips\n\nFeature Points are used for …\n• Image alignment (e.g., mosaics)\n• 3D reconstruction\n• Motion tracking\n• Object recognition\n• Indexing and database retrieval\n• Robot navigation\n• …\n\nAdvantages of Local Features\nLocality \n◦ features are local, so robust to occlusion and clutter\nDistinctiveness\n◦ can differentiate a large database of objects\nQuantity\n◦ hundreds or thousands in a single image\nEfficiency\n◦ real-time performance achievable\nGenerality\n◦ exploit different types of features in different situations",
+  "page_content": "Pooling Layer\n• Pooling combines nearby units to reduce the size of the input on the next layer, reducing dimensions. Common pooling includes\nmax pooling and average pooling. When max pooling is used, the maximum value in a small square area is selected as the\nrepresentative of this area, while the mean value is selected as the representative when average pooling is used. The side of this\nsmall area is the pool window size. The following figure shows the max pooling operation whose pooling window size is 2.\nSliding direction",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 9)",
-      "04_Feature Detection and Matching.pdf (page 10)",
-      "04_Feature Detection and Matching.pdf (page 11)"
+      "03_DL for Computer Vision.pdf (page 10)"
     ]
   }
 }

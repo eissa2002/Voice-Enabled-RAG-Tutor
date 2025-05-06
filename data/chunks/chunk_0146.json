@@ -1,0 +1,8 @@
+{
+  "page_content": "Forward Warping\n• Send each pixel f(x) to its corresponding location x’ = h(x) in \ng(x’)\nf(x) g(x’)x x’\nh(x)\n• What if pixel lands “between” two pixels?",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 19)"
+    ]
+  }
+}

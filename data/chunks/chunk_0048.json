@@ -1,10 +1,8 @@
 {
-  "page_content": "Scale Invariance\n• Detecting features at the finest stable scale possible may not always be appropriate\n◦ e.g., when matching images with little high frequency detail (e.g., clouds), fine-scale features may not exist.\n• One solution to the problem is to extract features at a variety of scales\n◦ e.g., by performing the same operations at multiple resolutions in a pyramid and then matching features at the same \nlevel. \n• This kind of approach is suitable when the images being matched do not undergolarge scale \nchanges\n◦ e.g., when matching successive aerial images taken from an airplane or\n◦ stitching panoramas taken with a fixed-focal-length camera.\n\nScale Invariancefor Feature Descriptors\n\nScale Invariant Detection\n• Key idea: find scale that gives local maximum of f\n◦ f is a local maximum in both position and scale",
+  "page_content": "Deconvolution Network",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 60)",
-      "04_Feature Detection and Matching.pdf (page 61)",
-      "04_Feature Detection and Matching.pdf (page 62)"
+      "03_DL for Computer Vision.pdf (page 28)"
     ]
   }
 }

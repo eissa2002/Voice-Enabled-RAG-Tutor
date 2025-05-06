@@ -1,0 +1,8 @@
+{
+  "page_content": "RANSAC for estimating homography\n• RANSAC loop:\n1. Select four feature pairs (at random)\n2. Compute homography H (exact)\n3. Compute inliers where ||pi’, H pi|| < ε\n• Keep largest set of inliers\n• Re-compute least-squares H estimate using all of the inliers\nCSE 576, Spring 2008 Structure from Motion 46",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 46)"
+    ]
+  }
+}

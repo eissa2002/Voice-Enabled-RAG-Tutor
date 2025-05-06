@@ -1,10 +1,8 @@
 {
-  "page_content": "Object Detection: Faster R-CNN\n•The Faster R-CNN system replaces the relatively slow selective search stage with \na convolutional region proposal network (RPN), resulting in much faster \ninference. \n•After computing convolutional features, the RPN suggests at each coarse \nlocation a number of potential anchor boxes, which vary in shape and size to \naccommodate different potential objects.\n•R-CNN, Fast R-CNN, and Faster R-CNN all operate on a single resolution \nconvolutional feature map . To obtain better scale invariance, it would be \npreferable to operate on a range of resolutions\n\nObject Detection: Faster R-CNN (cont.)\n\nObject Detection: Single-stage networks\n•Single-stage network uses a single neural network to output detections at a \nvariety of locations. Two examples of such detectors are SSD (Single Shot \nMultiBox Detector) and the family of YOLO (You Only Look Once) detectors",
+  "page_content": "Instance Recognition: Geometric \nAlignment (cont.)",
   "metadata": {
     "sources": [
-      "02_Object Detection.pdf (page 12)",
-      "02_Object Detection.pdf (page 13)",
-      "02_Object Detection.pdf (page 14)"
+      "02_Object Detection.pdf (page 5)"
     ]
   }
 }

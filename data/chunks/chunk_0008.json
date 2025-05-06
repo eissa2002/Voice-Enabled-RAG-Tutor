@@ -1,10 +1,8 @@
 {
-  "page_content": "Main Concepts of CNN\n• Local receptive field: It is generally considered that human perception of the outside world is from\nlocal to global. Spatial correlations among local pixels of an image are closer than those among\ndistant pixels. Therefore, each neuron does not need to know the global image. It only needs to know\nthe local image. The local information is combined at a higher level to generate global information.\n• Parameter sharing: One or more filters/kernels may be used to scan input images. Parameters carried\nby the filters are weights. In a layer scanned by filters, each filter uses the same parameters during\nweighted computation. Weight sharing means that when each filter scans an entire image, parameters\nof the filter are fixed.",
+  "page_content": "Image Classification: Feature-based \nmethods (cont.)",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 1)",
-      "03_DL for Computer Vision.pdf (page 2)",
-      "03_DL for Computer Vision.pdf (page 3)"
+      "02_Object Detection.pdf (page 8)"
     ]
   }
 }

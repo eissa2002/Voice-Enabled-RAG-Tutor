@@ -1,10 +1,8 @@
 {
-  "page_content": "Compute Transformations\n• Extract interest points\n• Find good matches \n• Compute transformation\n✓\nLet’s assume we are given a set of good matching \ninterest points\n✓\n\nmosaic PP\nImage reprojection\n• The mosaic has a natural interpretation in 3D\n– The images are reprojected onto a common plane\n– The mosaic is formed on this plane\n\nExample\nCamera Center",
+  "page_content": "Vision Transformer (ViT)",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 9)",
-      "05_Image Stitching.pdf (page 10)",
-      "05_Image Stitching.pdf (page 11)"
+      "03_DL for Computer Vision.pdf (page 36)"
     ]
   }
 }

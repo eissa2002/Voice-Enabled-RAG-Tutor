@@ -1,0 +1,8 @@
+{
+  "page_content": "Laplacian image blend\n1. Compute Laplacian pyramid\n2. Compute Gaussian pyramid on weight image (can put this in \nA channel)\n3. Blend Laplacians using Gaussian blurred weights\n4. Reconstruct the final image\n• Q: How do we compute the original weights?",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 83)"
+    ]
+  }
+}

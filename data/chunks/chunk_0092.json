@@ -1,0 +1,8 @@
+{
+  "page_content": "Corner response function\n“Corner”\nR > 0\n“Edge” \nR < 0\n“Edge” \nR < 0\n“Flat” \nregion\n|R| small\n2\n2121\n2 )()(trace)det(   MMR\nα: constant (0.04 to 0.06)",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 37)"
+    ]
+  }
+}

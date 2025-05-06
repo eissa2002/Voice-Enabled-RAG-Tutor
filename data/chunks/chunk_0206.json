@@ -1,0 +1,8 @@
+{
+  "page_content": "Pyramid blending\nCreate a Laplacian pyramid, blend each level\n• Burt, P. J. and Adelson, E. H., A multiresolution spline with applications to image mosaics, ACM Transactions on \nGraphics, 42(4), October 1983, 217-236.",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 80)"
+    ]
+  }
+}

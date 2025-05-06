@@ -1,0 +1,8 @@
+{
+  "page_content": "Automatic Image Stitching\n1. Compute interest points on each image\n2. Find candidate matches\n3. Estimate homography H using matched points and RANSAC with \nnormalized DLT\n4. Project each image onto the same surface and blend",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 59)"
+    ]
+  }
+}

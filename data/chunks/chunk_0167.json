@@ -1,0 +1,8 @@
+{
+  "page_content": "Direct Linear Transforms\nDefines a least squares problem:\n• Since        is only defined up to scale, solve for unit vector\n• Solution:        = eigenvector of with smallest eigenvalue\n• Works with 4 or more points\n2n × 9\n 9\n 2n",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 40)"
+    ]
+  }
+}

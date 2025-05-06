@@ -1,0 +1,8 @@
+{
+  "page_content": "Richard Szeliski Image Stitching 55\nRotational mosaics\n– Directly optimize rotation and focal length\n– Advantages:\n• ability to build full-view \npanoramas\n• easier to control interactively\n• more stable and accurate \nestimates",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 55)"
+    ]
+  }
+}

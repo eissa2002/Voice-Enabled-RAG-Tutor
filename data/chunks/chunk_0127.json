@@ -1,0 +1,8 @@
+{
+  "page_content": "Key trade-offs\nMore Repeatable More Points\nA1\nA2 A3\nDetection of interest points\nMore Distinctive More Flexible\nDescription of patches\nRobust to occlusion\nWorks with less texture\nMinimize wrong matches Robust to expected variations\nMaximize correct matches\nRobust detection\nPrecise localization",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 71)"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "page_content": "Encoding blend weights:   I(x,y) = (R, G, B, ) \ncolor at p =\nImplement this in two steps:\n1.  accumulate:  add up the ( premultiplied) RGB values at each pixel\n2.  normalize:  divide each pixel’s accumulated RGB by its  value\nAlpha Blending\nOptional:  see Blinn (CGA, 1994) for details:\nhttp://ieeexplore.ieee.org/iel1/38/7531/00310740.pdf?isNumber\n=7531&prod=JNL&arnumber=310740&arSt=83&ared=87&arAut\nhor=Blinn%2C+J.F. \nI1\nI2\nI3\np",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 88)"
+    ]
+  }
+}

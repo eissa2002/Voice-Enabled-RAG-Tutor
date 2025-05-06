@@ -1,10 +1,8 @@
 {
-  "page_content": "Layer 3: Fully Connected Layer (Dense)\n•Input: output of layer 2 with volume 96 x 96 x 100 \n◦ Layer 3 consists of 50 Neuron\n•Total No. of Parameter for Neural Network Layer  = N x M + M\n= (96 x 96 x 100 ) x 50 + 50 = 46,080,050\n\nLayer 4: Fully Connected Layer (Dense)\n•Layer 3 consists of 50 Neuron\n•Layer 4 consists of 2 Neuron\n•Total No. of Parameter for Neural Network Layer  = N x M + M\n= 50 x 2 + 2 = 102\n\nCNN Example\n•How many parameter will be needed if Fully Connected layer used instead of \nfirst convolutional layer?\n•Input = 100 x 100 x 3 = 30,000\n•The convolutional layer consists of 200 3x3 Filter so, 3 x 3 x 3 x 200 = 5400 \nneurons will be needed\n•Total No. of Parameter for Neural Network Layer  = N x M + M\n= 30,000 x 5400 + 5400 = 162,005,400",
+  "page_content": "Object Detection: Faster R-CNN (cont.)",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 16)",
-      "03_DL for Computer Vision.pdf (page 17)",
-      "03_DL for Computer Vision.pdf (page 18)"
+      "02_Object Detection.pdf (page 14)"
     ]
   }
 }

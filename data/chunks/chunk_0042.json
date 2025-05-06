@@ -1,10 +1,8 @@
 {
-  "page_content": "The Harris Operator\n• Called the “Harris Corner Detector” or “Harris Operator”\n• Very similar to - but less expensive (no square root)\n• Lots of other detectors, this is one of the most popular\n2211\n21122211\n)(tr\n)det(\naa\naaaa\nA\nAf \n\n\n\n\n\n\n\n\n\n2221\n1211\naa\naaA\n\nThe Harris Operator\nHarris \noperator\n\nHarris Detector Example",
+  "page_content": "GAN Architecture\n• Generator/Discriminator",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 42)",
-      "04_Feature Detection and Matching.pdf (page 43)",
-      "04_Feature Detection and Matching.pdf (page 44)"
+      "03_DL for Computer Vision.pdf (page 22)"
     ]
   }
 }

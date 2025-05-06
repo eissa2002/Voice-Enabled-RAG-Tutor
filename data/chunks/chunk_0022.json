@@ -1,10 +1,8 @@
 {
-  "page_content": "U-Nets\n\nU-Nets\n\nVGG16 network",
+  "page_content": "• Parameter sharing: One or more filters/kernels may be used to scan input images. Parameters carried\nby the filters are weights. In a layer scanned by filters, each filter uses the same parameters during\nweighted computation. Weight sharing means that when each filter scans an entire image, parameters\nof the filter are fixed.",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 28)",
-      "03_DL for Computer Vision.pdf (page 29)",
-      "03_DL for Computer Vision.pdf (page 30)"
+      "03_DL for Computer Vision.pdf (page 4)"
     ]
   }
 }

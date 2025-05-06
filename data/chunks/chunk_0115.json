@@ -1,0 +1,8 @@
+{
+  "page_content": "Rotational Invariancefor Feature Descriptors\nFind dominant orientation of the image \npatch. This is given by e+, the eigenvector \nof M corresponding to +\nRotate the patch to horizontaldirection\nIntensity normalize the window by \nsubtracting the mean, dividing by the \nstandard deviation in the window\nCSE 576: Computer Vision by Matthew Brown\n8 pixels",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 60)"
+    ]
+  }
+}

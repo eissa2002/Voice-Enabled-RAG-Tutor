@@ -1,0 +1,8 @@
+{
+  "page_content": "Scale Invariance\n• Detecting features at the finest stable scale possible may not always be appropriate\n◦ e.g., when matching images with little high frequency detail (e.g., clouds), fine-scale features may not exist.\n• One solution to the problem is to extract features at a variety of scales\n◦ e.g., by performing the same operations at multiple resolutions in a pyramid and then matching features at the same \nlevel. \n• This kind of approach is suitable when the images being matched do not undergolarge scale \nchanges\n◦ e.g., when matching successive aerial images taken from an airplane or",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 61)"
+    ]
+  }
+}

@@ -1,10 +1,8 @@
 {
-  "page_content": "Finding the transformation\n• Translation = 2 degrees of freedom\n• Similarity = 4 degrees of freedom\n• Affine = 6 degrees of freedom\n• Homography = 8 degrees of freedom\n• How many corresponding points do we need to solve?\n\nPlane perspective mosaics\n– 8-parameter generalization of affine motion\n• works for pure rotation or planar surfaces\n– Limitations:\n• local minima \n• slow convergence\n• difficult to control interactively\n\nSimple case: translations\nHow do we solve for\n?",
+  "page_content": "• Edges, e.g., the profile of mountains against the sky. These kinds of features can be \nmatched based on their orientation and local appearance (edge profiles) and can also \nbe good indicators of object boundaries and occlusion events in image sequences.\n◦ Edges can be grouped into longer curves and contours, which can then be tracked.\n◦ They can also be grouped into straight line segments, which can be directly matched or analyzed \nto find vanishing points and hence internal and external camera parameters.",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 24)",
-      "05_Image Stitching.pdf (page 25)",
-      "05_Image Stitching.pdf (page 26)"
+      "04_Feature Detection and Matching.pdf (page 5)"
     ]
   }
 }

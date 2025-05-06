@@ -1,10 +1,8 @@
 {
-  "page_content": "Instance Recognition: Geometric \nAlignment (cont.)\n\nInstance Recognition: Geometric \nAlignment (cont.)",
+  "page_content": "Object Recognition\n•General object recognition falls into two broad categories\n•Instance Recognition: involves re-recognizing a known 2D or 3D rigid object, \npotentially being viewed from a novel viewpoint, against a cluttered \nbackground, and with partial occlusions\n•Class Recognition: is also known as category-level or generic object recognition \nis the much more challenging problem of recognizing any instance of a \nparticular general class, such as “cat”, “car”, or “bicycle”.",
   "metadata": {
     "sources": [
-      "02_Object Detection.pdf (page 3)",
-      "02_Object Detection.pdf (page 4)",
-      "02_Object Detection.pdf (page 5)"
+      "02_Object Detection.pdf (page 3)"
     ]
   }
 }

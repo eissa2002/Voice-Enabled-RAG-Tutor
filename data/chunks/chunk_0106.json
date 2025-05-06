@@ -1,0 +1,8 @@
+{
+  "page_content": "Feature Descriptor\n• How can we extract feature descriptors that are invariant to variations \n(transformations) and yet still discriminative enough to establish correct \ncorrespondences?\n?",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 51)"
+    ]
+  }
+}

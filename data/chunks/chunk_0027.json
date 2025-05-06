@@ -1,10 +1,8 @@
 {
-  "page_content": "Points and patches\n• Point features can be used to find a sparse set of corresponding locations in \ndifferent images, often as a precursor to computing camera pose , which is a \nprerequisite for computing a denser set of correspondences using stereo \nmatching. \n◦ Image alignment\n◦ Object instance recognition\n• A key advantage of keypoints is that they permit matching even in the presence \nof clutter (occlusion) and large scale and orientation changes.",
+  "page_content": "biased and activated through activation functions before being input to the next layer.\nInput \ntensor\nOutput \ntensor\nOutput\nActivate\nBiasConvolutional \nkernel\n1W\n2W\nWn\nnb\n2b\n1b\nFn\n1F",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 3)",
-      "04_Feature Detection and Matching.pdf (page 4)",
-      "04_Feature Detection and Matching.pdf (page 5)"
+      "03_DL for Computer Vision.pdf (page 8)"
     ]
   }
 }

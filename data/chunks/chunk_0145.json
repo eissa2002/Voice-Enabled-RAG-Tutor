@@ -1,0 +1,8 @@
+{
+  "page_content": "Image Warping\n• Given a coordinate transform x’ = h(x) and a source image f(x), \nhow do we compute a transformed image g(x’) = f(h(x))?\nf(x) g(x’)x x’\nh(x)",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 18)"
+    ]
+  }
+}

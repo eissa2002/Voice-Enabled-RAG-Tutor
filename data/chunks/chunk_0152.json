@@ -1,0 +1,8 @@
+{
+  "page_content": "Finding the transformation\n• Translation = 2 degrees of freedom\n• Similarity = 4 degrees of freedom\n• Affine = 6 degrees of freedom\n• Homography = 8 degrees of freedom\n• How many corresponding points do we need to solve?",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 25)"
+    ]
+  }
+}

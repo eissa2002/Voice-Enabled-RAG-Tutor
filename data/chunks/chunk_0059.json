@@ -1,10 +1,8 @@
 {
-  "page_content": "Forward Warping\n• Send each pixel f(x) to its corresponding location x’ = h(x) in \ng(x’)\nf(x) g(x’)x x’\nh(x)\n• What if pixel lands “between” two pixels?\n\nForward Warping\n• Send each pixel f(x) to its corresponding location x’ = h(x) in \ng(x’)\nf(x) g(x’)x x’\nh(x)\n• What if pixel lands “between” two pixels?\n• Answer: add “contribution” to several pixels, \nnormalize later (splatting)\n\nRichard Szeliski Image Stitching 21\nInverse Warping\n• Get each pixel g(x’) from its corresponding location x’ = h(x) in \nf(x)\nf(x) g(x’)x x’\nh-1(x)\n• What if pixel comes from “between” two pixels?",
+  "page_content": "Image Matching",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 18)",
-      "05_Image Stitching.pdf (page 19)",
-      "05_Image Stitching.pdf (page 20)"
+      "04_Feature Detection and Matching.pdf (page 4)"
     ]
   }
 }

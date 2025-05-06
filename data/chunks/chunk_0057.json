@@ -1,10 +1,8 @@
 {
-  "page_content": "Image reprojection\n• Observation\n– Rather than thinking of this as a 3D reprojection, think \nof it as a 2D image warp from one image to another\n\nMotion models\n• What happens when we take two images with a camera and \ntry to align them?\n• translation?\n• rotation?\n• scale?\n• affine?\n• Perspective?\n\nRecall: Projective transformations\n• (aka homographies)",
+  "page_content": "Feature Detection \nand Matching\nImage by kirkh.deviantart.com",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 12)",
-      "05_Image Stitching.pdf (page 13)",
-      "05_Image Stitching.pdf (page 14)"
+      "04_Feature Detection and Matching.pdf (page 1)"
     ]
   }
 }

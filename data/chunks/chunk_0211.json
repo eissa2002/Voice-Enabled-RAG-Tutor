@@ -1,0 +1,8 @@
+{
+  "page_content": "Multiband blending\n1. Compute Laplacian\npyramid of images and \nmask\n2. Create blended image \nat each level of \npyramid\n3. Reconstruct complete \nimage\nLaplacian pyramids",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 85)"
+    ]
+  }
+}

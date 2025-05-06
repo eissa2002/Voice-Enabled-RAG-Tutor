@@ -1,10 +1,8 @@
 {
-  "page_content": "Choosing a Projection Surface\nMany to choose: planar, cylindrical, spherical, cubic, etc.\n\nPlanar Mapping\nf f\nx\nx\n1) For red image: pixels are already on the planar surface\n2) For green image: map to first image plane\n\nPlanar Projection\nPlanar\nPhotos by Russ Hewett",
+  "page_content": "Autocorrelation Calculation\nAutocorrelation can be approximated by \nsum-squared-difference (SSD):\n\n\n\nWyx\nyxIvyuxIvuR\n),(\n),(),(),(",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 66)",
-      "05_Image Stitching.pdf (page 67)",
-      "05_Image Stitching.pdf (page 68)"
+      "04_Feature Detection and Matching.pdf (page 20)"
     ]
   }
 }

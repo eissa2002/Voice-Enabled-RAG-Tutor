@@ -1,0 +1,8 @@
+{
+  "page_content": "Recognizing Panoramas (cont.)\n(now we have matched pairs of images)\n4. Find connected components\n5. For each connected component\na) Solve for rotation and f\nb) Project to a surface (plane, cylinder, or sphere)\nc) Render with multiband blending",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 102)"
+    ]
+  }
+}

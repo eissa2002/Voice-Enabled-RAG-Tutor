@@ -1,0 +1,8 @@
+{
+  "page_content": "How are +, e+, -, and e+ relevant for \nfeature detection?\nWe want E(u,v) to be large for small shifts in all directions\nThus, the minimum of E(u,v) should be large, this minimum is given by the \nsmaller eigenvalue - of M",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 41)"
+    ]
+  }
+}

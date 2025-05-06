@@ -1,10 +1,8 @@
 {
-  "page_content": "Types of invariance (cont.)\n• Scale\n\nTypes of invariance (cont.)\n• Rotation\n\nTypes of invariance (cont.)\n• Affine",
+  "page_content": "InfoGAN\n•The discriminator in an InfoGAN does not have access to the class id, but must \ninstead infer it from the samples it is given",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 54)",
-      "04_Feature Detection and Matching.pdf (page 55)",
-      "04_Feature Detection and Matching.pdf (page 56)"
+      "03_DL for Computer Vision.pdf (page 26)"
     ]
   }
 }

@@ -1,10 +1,8 @@
 {
-  "page_content": "Richard Szeliski Image Stitching 22\nInverse Warping\n• Get each pixel g(x’) from its corresponding location x’ = h(x) in \nf(x)\n• What if pixel comes from “between” two pixels?\n• Answer: resample color value from \ninterpolated source image\nf(x) g(x’)x x’\nh-1(x)\n\nInterpolation\n• Possible interpolation filters:\n– nearest neighbor\n– bilinear\n– bicubic (interpolating)\n\nMotion models\nTranslation\n2 unknowns\nAffine\n6 unknowns\nPerspective\n8 unknowns\n3D rotation\n3 unknowns",
+  "page_content": "Introduction\n• Feature detection and matching are an essential component of many computer vision \napplications.\n• Specific locations in the images, such as mountain peaks, building corners, doorways, \nor interestingly shaped patches of snow. These kinds of localized features are often \ncalled keypoint features or interest points (or even corners) and are often described by \nthe appearance of pixel patches surrounding the point location \n• Edges, e.g., the profile of mountains against the sky. These kinds of features can be",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 21)",
-      "05_Image Stitching.pdf (page 22)",
-      "05_Image Stitching.pdf (page 23)"
+      "04_Feature Detection and Matching.pdf (page 5)"
     ]
   }
 }

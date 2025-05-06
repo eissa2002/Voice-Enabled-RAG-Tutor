@@ -1,10 +1,8 @@
 {
-  "page_content": "CNN Example\n•How many zeros padding is required to keep the same input size?\n•O = (W−F+2P)/S+1 \n•100 = (100 –3 + 2P)/1 + 1\n•100 = 98 + 2P\n•2 = 2P\n•P = 1",
+  "page_content": "Object Detection: Single-stage networks\n•Single-stage network uses a single neural network to output detections at a \nvariety of locations. Two examples of such detectors are SSD (Single Shot \nMultiBox Detector) and the family of YOLO (You Only Look Once) detectors",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 19)",
-      "03_DL for Computer Vision.pdf (page 20)",
-      "03_DL for Computer Vision.pdf (page 21)"
+      "02_Object Detection.pdf (page 15)"
     ]
   }
 }

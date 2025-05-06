@@ -1,10 +1,8 @@
 {
-  "page_content": "Consider a horizontal “slice” of E(u, v):\nInterpreting the second moment matrix\nconst][ \n\n\n\nv\nuMvu\nThis is the equation of an ellipse.\n\nConsider a horizontal “slice” of E(u, v):\nInterpreting the second moment matrix\nconst][ \n\n\n\nv\nuMvu\nThis is the equation of an ellipse.\nRRM \n\n\n \n2\n11\n0\n0\n\n\nThe axis lengths of the ellipse are determined by the eigenvalues and the orientation \nis determined by R\ndirection of the \nslowest change\ndirection of the \nfastest change\n(max)-1/2\n(min)-1/2\nDiagonalization of M:\n\nInterpreting the eigenvalues\n1\n2\n“Corner”\n1 and 2 are large,\n1 ~ 2;\nE increases in all \ndirections\n1 and 2 are small;\nE is almost constant \nin all directions\n“Edge” \n1 >> 2\n“Edge” \n2 >> 1\n“Flat” \nregion\nClassification of image points using eigenvalues \nof M:",
+  "page_content": "CNN Example\n•How many zeros padding is required to keep the same input size?\n•O = (W−F+2P)/S+1 \n•100 = (100 –3 + 2P)/1 + 1\n•100 = 98 + 2P\n•2 = 2P\n•P = 1",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 33)",
-      "04_Feature Detection and Matching.pdf (page 34)",
-      "04_Feature Detection and Matching.pdf (page 35)"
+      "03_DL for Computer Vision.pdf (page 20)"
     ]
   }
 }

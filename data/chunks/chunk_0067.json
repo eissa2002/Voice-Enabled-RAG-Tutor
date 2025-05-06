@@ -1,10 +1,8 @@
 {
-  "page_content": "Richard Szeliski Image Stitching 43\nRAndom SAmple Consensus\nSelect one match, count inliers\n\nRichard Szeliski Image Stitching 44\nLeast squares fit\nFind “average” translation vector",
+  "page_content": "Advantages of Local Features\nLocality \n◦ features are local, so robust to occlusion and clutter\nDistinctiveness\n◦ can differentiate a large database of objects\nQuantity\n◦ hundreds or thousands in a single image\nEfficiency\n◦ real-time performance achievable\nGenerality\n◦ exploit different types of features in different situations",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 42)",
-      "05_Image Stitching.pdf (page 43)",
-      "05_Image Stitching.pdf (page 44)"
+      "04_Feature Detection and Matching.pdf (page 12)"
     ]
   }
 }

@@ -1,10 +1,8 @@
 {
-  "page_content": "Feathering\n0\n1\n0\n1\n+\n=\n\nEffect of window (ramp-width) size\n0\n1 left\nright\n0\n1\n\nEffect of window size\n0\n1\n0\n1",
+  "page_content": " \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nIntensityShifted \nintensity\nWindow \nfunction\norWindow function w(x,y) =\nGaussian1 in window, 0 outside\nSource: R. Szeliski\nChange in appearance of window w(x,y) \nfor the shift [u,v]:\nCorner Detection: Mathematics",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 75)",
-      "05_Image Stitching.pdf (page 76)",
-      "05_Image Stitching.pdf (page 77)"
+      "04_Feature Detection and Matching.pdf (page 23)"
     ]
   }
 }

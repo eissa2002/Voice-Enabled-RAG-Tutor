@@ -1,10 +1,8 @@
 {
-  "page_content": "Schematic Neural Network Symbols\n\nConvolutional Neural Network\n• A convolutional neural network (CNN) is a feedforward neural network. Its artificial neurons may\nrespond to surrounding units within the coverage range. CNN excels at image processing. It includes a\nconvolutional layer, a pooling layer, and a fully connected layer.\n• In the 1960s, Hubel and Wiesel studied cats' cortex neurons used for local sensitivity and direction\nselection and found that their unique network structure could simplify feedback neural networks.\nThey then proposed the CNN.\n• Now, CNN has become one of the research hotspots in many scientific fields, especially in the pattern\nclassification field. The network is widely used because it can avoid complex pre-processing of images\nand directly input original images.",
+  "page_content": "Image Classification: Feature-based \nmethods\n•Bag of words (also known as bag of features or bag of keypoints)\n◦ computes the distribution (histogram) of visual words found in the query image\n◦ compares this distribution to those found in the training images\n•The biggest difference from instance recognition is the absence of a geometric \nverification stage since individual instances of generic visual categories, have \nrelatively little spatial coherence to their features.",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 1)",
-      "03_DL for Computer Vision.pdf (page 2)",
-      "03_DL for Computer Vision.pdf (page 3)"
+      "02_Object Detection.pdf (page 7)"
     ]
   }
 }

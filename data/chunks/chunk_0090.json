@@ -1,0 +1,8 @@
+{
+  "page_content": "Consider a horizontal “slice” of E(u, v):\nInterpreting the second moment matrix\nconst][ \n\n\n\nv\nuMvu\nThis is the equation of an ellipse.\nRRM \n\n\n \n2\n11\n0\n0\n\n\nThe axis lengths of the ellipse are determined by the eigenvalues and the orientation \nis determined by R\ndirection of the \nslowest change\ndirection of the \nfastest change\n(max)-1/2\n(min)-1/2\nDiagonalization of M:",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 35)"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "page_content": "Choosing seams\n• Easy method\n– Assign each pixel to image with nearest center\n– Create a mask: \n– Smooth boundaries ( “feathering”): \n– Composite\nImage 1\nImage 2\nx x\nim1 im2",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 90)"
+    ]
+  }
+}

@@ -1,10 +1,8 @@
 {
-  "page_content": "Transformation Invariance\nFind features that are invariant to transformations\n◦ geometric invariance:  translation, rotation, scale\n◦ photometric invariance:  brightness, exposure\n\nTransformation Invariance\n• We would like to find the same features regardless of the transformation\nbetween images. This is called transformational invariance.\n◦ Most feature methods are designed to be invariant to\n◦ Translation, 2D rotation, scale\n◦ They can usually also handle\n◦ Limited affine transformations (some are fully affine invariant)\n◦ Limited 3D rotations (SIFT works up to about 60 degrees)\n◦ Limited illumination/contrast changes\n\nTypes of invariance\n• Illumination",
+  "page_content": "conditional GAN (cGAN)\n•the network iterates (during training) \nover all the classes that we wish to \nsynthesize. \n•The generator G gets both a class id c \nand a random noise vector z as input, \nand the discriminator D gets the class \nid as well and needs to determine if \nits input is a real member of the \ngiven class",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 51)",
-      "04_Feature Detection and Matching.pdf (page 52)",
-      "04_Feature Detection and Matching.pdf (page 53)"
+      "03_DL for Computer Vision.pdf (page 25)"
     ]
   }
 }
