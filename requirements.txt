@@ -1,10 +1,29 @@
+# Python version (informational)
+# Requires Python >= 3.8
+
+fastapi
+uvicorn[standard]
+python-multipart
+
+# STT and LLM
+openai
+whisper
+faster-whisper
+torch
+numpy
+
+# Retrieval
 langchain>=0.3.25
 langchain_community
-openai
 chromadb
 sentence-transformers
-whisper
-python-pptx       # for manual PPTX parsing
-pypdf             # for PyPDFLoader
-PyMuPDF         # for PyMuPDFLoader
-python-docx        # for DocxLoader
+
+# Document loaders
+python-pptx
+pypdf
+PyMuPDF
+python-docx
+
+# TTS (choose the one you use, e.g., gtts or pyttsx3)
+# gtts
+ pyttsx3
