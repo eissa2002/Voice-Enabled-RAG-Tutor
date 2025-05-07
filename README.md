@@ -12,37 +12,68 @@ A self‑hosted, voice‑enabled Retrieval‑Augmented‑Generation (RAG) tutor 
 │   ├── avatar waiting.mp4
 │   └── avatar talking.mp4
 ├── config/
-│   └── settings.yaml        # optional configuration flags
+│   └── settings.yaml         # optional configuration flags
 ├── data/
-│   ├── raw/                 # put your domain PDFs & PPTX files here
-│   └── chunks/              # auto‑generated JSON document chunks
+│   ├── raw/                  # put your domain PDFs & PPTX files here
+│   └── chunks/               # auto‑generated JSON document chunks
 ├── db/
-│   └── chroma_index/        # persisted Chroma vectorstore
-├── offline/
-│   ├── loaders.py           # load PDFs + PPTX → LangChain Documents
-│   ├── splitter.py          # group pages & split into text chunks
-│   └── indexer.py           # embed & persist chunks into Chroma
+│   └── chroma_index/         # persisted Chroma vectorstore
+├── offline/                  # four-step offline indexing pipeline
+│   ├── loaders.py            # (1) load PDFs + PPTX → Documents
+│   ├── splitter.py           # (2) group pages & split into text chunks
+│   ├── embedder.py           # (3) sanitize & prepare chunk metadata
+│   └── indexer.py            # (4) embed & persist chunks into Chroma
 ├── online/
 │   ├── stt/
-│   │   ├── whisper_stt.py   # faster‑whisper wrapper (English only)
-│   │   └── record_test.py   # CLI for mic testing & transcription
+│   │   ├── whisper_stt.py    # faster‑whisper wrapper (English-only)
+│   │   └── record_test.py    # CLI for mic testing & transcription
 │   ├── retrieval/
-│   │   └── retriever.py     # load Chroma & similarity search
+│   │   └── retriever.py      # load Chroma & similarity search
 │   ├── llm/
-│   │   └── inference.py     # build prompt, call OllamaLLM, format citations
+│   │   └── inference.py      # build prompt, call LLM, format citations
 │   ├── tts/
-│   │   └── tts_service.py   # synthesize answer to WAV via TTS engine
-│   ├── temp/                # working audio files (in/out)
-│   └── server.py            # FastAPI app (endpoints `/ask/` & `/chat/`)
-├── index.html               # browser UI (record, display, playback)
-├── README.md                # this file
-├── requirements.txt         # pinned dependencies
-└── test_output.wav          # example recording
+│   │   └── tts_service.py    # synthesize answer to WAV via TTS engine
+│   ├── temp/                 # working audio files (in/out)
+│   └── server.py             # FastAPI app (endpoints `/ask/` & `/chat/`)
+├── index.html                # browser UI (record, display, playback)
+├── README.md                 # this file
+├── requirements.txt          # pinned dependencies
+└── test_output.wav           # example recording
 ```
 
 ---
 
-## ⚙️ Installation
+## 🛠️ Offline Indexing (4 Steps)
+
+1. **Load documents** (`offline/loaders.py`)
+   Reads PDF & PPTX files into LangChain `Document` objects with metadata.
+2. **Split into chunks** (`offline/splitter.py`)
+   Groups pages, then splits text into manageable chunks (size & overlap tunable).
+3. **Embed metadata** (`offline/embedder.py`)
+   Sanitizes metadata for Chroma; prepares chunk payloads.
+4. **Index in Chroma** (`offline/indexer.py`)
+   Embeds chunks with HuggingFace model, persists vectorstore in `db/chroma_index`.
+
+---
+
+## 🚀 Pipeline Flowchart
+
+```mermaid
+flowchart TB
+    A[User Records Question] --> B[STT: WhisperModel]
+    B --> C[Text Transcript]
+    C --> D[Retrieval: Chroma Similarity Search]
+    D --> E[LLM: Prompt & Generate]
+    E --> F[Text Answer]
+    F --> G[TTS: Synthesize Audio]
+    G --> H[Response: Text & Voice]
+```
+
+> **Note:** Responses include both the **text** answer (displayed on UI or JSON) and **voice** (audio playback).
+
+---
+
+## ⚙️ Installation & Setup
 
 1. **Clone & enter**
 
@@ -54,29 +85,13 @@ A self‑hosted, voice‑enabled Retrieval‑Augmented‑Generation (RAG) tutor 
 
    ```bash
    python -m venv .venv
-   source .venv/bin/activate      # Linux/macOS
-   .venv\Scripts\activate.bat    # Windows
+   source .venv/bin/activate    # Linux/macOS
+   .venv\Scripts\activate.bat  # Windows
    pip install --upgrade pip
    pip install -r requirements.txt
    ```
 
-> No OCR or Poppler/Tesseract needed—PDFs load directly with `PyPDFLoader`, PPTX via `python-pptx`.
-
----
-
-## 🛠️ Offline Indexing
-
-1. **Split** your domain materials (PDF + PPTX → JSON chunks):
-
-   ```bash
-   python offline/splitter.py
-   ```
-
-2. **Embed & persist** chunks into Chroma:
-
-   ```bash
-   python offline/indexer.py
-   ```
+> No OCR/Poppler needed—PDFs load with `PyPDFLoader`, PPTX via `python-pptx`.
 
 ---
 
@@ -86,57 +101,44 @@ A self‑hosted, voice‑enabled Retrieval‑Augmented‑Generation (RAG) tutor 
 uvicorn online.server:app --reload --port 8000
 ```
 
-* **POST** `/ask/` (audio upload) → returns JSON:
-
-  ```jsonc
-  {
-    "transcript": "user question text",
-    "answer":     "LLM’s grounded answer",
-    "citation":   "- file.pdf (page X)\n- other.pdf (page Y)",
-    "audio_url":  "/audio/<uid>_out.wav",
-    "avatar_waiting":  "/static/avatar waiting.mp4",
-    "avatar_speaking": "/static/avatar talking.mp4"
-  }
-  ```
-
-* **POST** `/chat/` (form text) → pure-text chat without recording.
+* **POST** `/ask/` (audio upload) → returns JSON with `transcript`, `answer`, `citation`, `audio_url` and avatar URLs.
+* **POST** `/chat/` (form text) → returns pure-text + optional audio chat.
 
 ---
 
 ## 🎤 Web UI
 
-Browse to [http://127.0.0.1:8000](http://127.0.0.1:8000):
+Visit `http://127.0.0.1:8000`:
 
-1. **Record** your question via mic.
-2. **Stop** → see **Transcript**, **Answer**, and hear audio playback + avatar animation.
+1. **Record** your question with mic.
+2. **Stop** → see **Transcript**, **Answer**, and hear audio with avatar animation.
 
 ---
 
 ## 🔧 Customization
 
-* **Change LLM**: edit `online/llm/inference.py` (e.g. use `OllamaLLM` or other).
-* **Chunking**: adjust `pages_per_chunk`, `chunk_size`, `chunk_overlap` in `offline/splitter.py`.
-* **Retrieval**: tweak `top_k` or threshold in `online/retrieval/retriever.py`.
-* **STT**: swap `model_size_or_path` or `device` in `online/stt/whisper_stt.py`.
-* **TTS**: point `synthesize(...)` to your favorite TTS in `online/tts/tts_service.py`.
+* **LLM**: edit `online/llm/inference.py` to swap or tune the model.
+* **Chunking**: adjust parameters in `offline/splitter.py` (size, overlap).
+* **Retrieval**: tweak `top_k` or score threshold in `online/retrieval/retriever.py`.
+* **STT**: choose model size/device in `online/stt/whisper_stt.py`.
+* **TTS**: configure `online/tts/tts_service.py` for your preferred engine.
 
 ---
 
 ## 📝 Troubleshooting
 
-* **Empty transcription?**
+* **No transcript?**
 
-  * Check mic permissions & audio format.
+  * Check mic permissions & format.
   * Use `python online/stt/record_test.py` to record + transcribe.
 
-* **Missing content in answers?**
+* **Incomplete answers?**
 
-  * Ensure `data/raw/` files contain selectable text (not scanned images).
-  * Tweak loader in `offline/loaders.py` if needed.
+  * Ensure `data/raw/` contains selectable text (not images).
+  * Adjust loader in `offline/loaders.py` or fallback settings.
 
-* **Chroma issues?**
+* **Chroma errors?**
 
-  * Delete `db/chroma_index/` and re-run `offline/indexer.py`.
+  * Remove `db/chroma_index/` and re-run indexing.
 
-Happy teaching & learning across *any* domain!
-— Your Voice‑Enabled RAG Tutor
+Happy teaching & learning across *any* domain! 🎓
