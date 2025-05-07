@@ -6,7 +6,7 @@ A self‑hosted, voice‑enabled Retrieval‑Augmented‑Generation (RAG) tutor 
 
 ## 📂 Project Structure
 
-```
+```plaintext
 .
 ├── Avatar/                   # waiting & speaking avatar animations (MP4)
 │   ├── avatar waiting.mp4
