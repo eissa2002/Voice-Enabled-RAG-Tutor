@@ -1,0 +1,8 @@
+{
+  "page_content": "47\nSimple example: fit a line\n• Rather than homography H (8 numbers) \nfit y=ax+b (2 numbers a, b) to 2D pairs\n47",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 47)"
+    ]
+  }
+}

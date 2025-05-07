@@ -1,0 +1,8 @@
+{
+  "page_content": "Scale Invariant Detection\n• Key idea: find scale that gives local maximum of f\n◦ f is a local maximum in both position and scale",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 63)"
+    ]
+  }
+}

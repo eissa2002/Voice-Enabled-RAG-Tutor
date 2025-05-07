@@ -1,0 +1,8 @@
+{
+  "page_content": "Scale Invariant Feature Transform (SIFT)\nFeatures\n• In order to detect the local maxima and minima of f, each sample point is compared to its eight \nneighbors in the current image and nine neighbors in the scale above and below\n◦ It is selected only if it is larger than all of these neighbors or smaller than all of them.\n◦ Instead of extracting features at many different scales and then matching all ofthem, it is more efficient \nto extract features that are stable in both location and scale.",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 64)"
+    ]
+  }
+}

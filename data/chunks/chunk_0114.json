@@ -1,0 +1,8 @@
+{
+  "page_content": "How to Achieve Invariance\n1. Make sure the detector is invariant\n◦ Harris is invariant to translation and rotation\n◦ Scale is trickier\n◦ A common approach is to detect features at many scales using a Gaussian pyramid (e.g., MOPS)\n◦ More sophisticated methods find “the best scale” to represent each feature (e.g., SIFT)\n2. Design an invariant feature descriptor\n◦ A descriptor captures the information in a region around the detected feature point\n◦ The simplest descriptor: a square window of pixels \n◦ What’s this invariant to?",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 59)"
+    ]
+  }
+}

@@ -1,10 +1,8 @@
 {
-  "page_content": "CNN Example\n•For the following CNN \narchitecture calculate the \noutput volume size and \nthe number of parameters \nfor each layer\n•The CNN doesn’t apply \nPadding and Stride = 1\nhttps://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9315927\n\nLayer 1\n•Input: colored image of size 100 x 100 x 3 (the colors channel Red, Green and \nBlue)\n◦ K = 200\n◦ F = 3\n◦ P = 0\n◦ S = 1\n•O = (W−F+2P)/S+1 = (100 –3 + 0)/1 + 1= 98\n•Output volume size = 98 x 98 x 200\n•No. of parameter = F⋅F⋅D1 = 3 x 3 x 3 = 27 for each filter\n•Total No. of Parameter = (F⋅F⋅D1)⋅K + K  = 27 X 200 + 200 = 5600\n\nLayer 2\n•Input: output of layer 1 with volume 98 x 98 x 200\n◦ K = 100\n◦ F = 3\n◦ P = 0\n◦ S = 1\n•O = (W−F+2P)/S+1 = (98 –3 + 0)/1 + 1= 96\n•Output volume size = 96 x 96 x 100\n•No. of parameter = F⋅F⋅D1 = 3 x 3 x 200 = 1800 for each filter\n•Total No. of Parameter = (F⋅F⋅D1)⋅K + K  = 1800 X 100 + 100 = 180,100",
+  "page_content": "Object Detection: Faster R-CNN\n•The Faster R-CNN system replaces the relatively slow selective search stage with \na convolutional region proposal network (RPN), resulting in much faster \ninference. \n•After computing convolutional features, the RPN suggests at each coarse \nlocation a number of potential anchor boxes, which vary in shape and size to \naccommodate different potential objects.\n•R-CNN, Fast R-CNN, and Faster R-CNN all operate on a single resolution \nconvolutional feature map . To obtain better scale invariance, it would be \npreferable to operate on a range of resolutions",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 13)",
-      "03_DL for Computer Vision.pdf (page 14)",
-      "03_DL for Computer Vision.pdf (page 15)"
+      "02_Object Detection.pdf (page 13)"
     ]
   }
 }

@@ -1,10 +1,8 @@
 {
-  "page_content": "Affine transformations\n• Matrix form\n2n x 6 6 x 1 2n x 1\n\nSolving for homographies\n\nSolving for homographies",
+  "page_content": "Image Matching using Feature Points\nNASA Mars Rover images\nBy: dokumen.tips",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 36)",
-      "05_Image Stitching.pdf (page 37)",
-      "05_Image Stitching.pdf (page 38)"
+      "04_Feature Detection and Matching.pdf (page 10)"
     ]
   }
 }

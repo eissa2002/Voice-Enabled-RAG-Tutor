@@ -1,10 +1,8 @@
 {
-  "page_content": "Least squares formulation\n• For each point\n• we define the residuals as\n\nLeast squares formulation\n• Goal: minimize sum of squared residuals\n• “Least squares”solution\n• For translations, is equal to mean displacement\n\nLeast squares\n• Find t that minimizes \n• To solve, form the normal equations",
+  "page_content": "Points and patches (cont.)\n• There are two main approaches to finding feature points and their \ncorrespondences. \n• The first is to find features in one image that can be accurately tracked using a \nlocal search technique, such as correlation or least squares\n• The second is to independently detect features in all the images under \nconsideration and then match features based on their local appearance",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 30)",
-      "05_Image Stitching.pdf (page 31)",
-      "05_Image Stitching.pdf (page 32)"
+      "04_Feature Detection and Matching.pdf (page 7)"
     ]
   }
 }

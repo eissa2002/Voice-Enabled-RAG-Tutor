@@ -1,10 +1,8 @@
 {
-  "page_content": "Properties of SIFT\nExtraordinarily robust matching technique\n◦ Can handle changes in viewpoint\n◦ Up to about 60 degree out of plane rotation\n◦ Can handle significant changes in illumination\n◦ Sometimes even day vs. night (below)\n◦ Fast and efficient—can run in real time\n\nFeature Matching\n\nFeature Matching\n• Given a feature in image I1, how to find the best match in image I2?\n1. Define a distance function that compares two descriptors\n2. Test all the features in I2, find the one with minimum distance",
+  "page_content": "VGG16 network",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 66)",
-      "04_Feature Detection and Matching.pdf (page 67)",
-      "04_Feature Detection and Matching.pdf (page 68)"
+      "03_DL for Computer Vision.pdf (page 31)"
     ]
   }
 }

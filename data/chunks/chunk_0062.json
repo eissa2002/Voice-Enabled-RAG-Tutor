@@ -1,10 +1,8 @@
 {
-  "page_content": "Mean displacement = \nSimple case: translations\nDisplacement of match i =\n\nSimple case: translations\n• System of linear equations\n– What are the knowns?  Unknowns?\n– How many unknowns?  How many equations (per match)?\n\nSimple case: translations\n• Problem: more equations than unknowns\n– “Overdetermined”system of equations\n– We will find the least squares solution",
+  "page_content": "Points and patches\n• Point features can be used to find a sparse set of corresponding locations in \ndifferent images, often as a precursor to computing camera pose , which is a \nprerequisite for computing a denser set of correspondences using stereo \nmatching. \n◦ Image alignment\n◦ Object instance recognition\n• A key advantage of keypoints is that they permit matching even in the presence \nof clutter (occlusion) and large scale and orientation changes.",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 27)",
-      "05_Image Stitching.pdf (page 28)",
-      "05_Image Stitching.pdf (page 29)"
+      "04_Feature Detection and Matching.pdf (page 6)"
     ]
   }
 }

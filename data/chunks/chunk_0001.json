@@ -1,10 +1,8 @@
 {
-  "page_content": "Instance Recognition: Geometric Alignment\n• To recognize one or more instances of some known objects, the recognition system \n• Extracts a set of interest points in each database image and stores the associated descriptors \n(and original positions) in an indexing structure such as a search tree\n• At recognition time, features are extracted from the new image and compared against the \nstored object features\n• Whenever a sufficient number of matching features (say, three or more) are found for a given \nobject, the system then invokes a match verification stage, to determine whether the spatial \narrangement of matching features is consistent with those in the database image.\n• Because images can be highly cluttered and similar features may belong to several objects, the \noriginal set of feature matches can have a large number of outliers.\n◦ Hough transform to accumulate votes for likely geometric transformations.\n\nInstance Recognition: Geometric \nAlignment (cont.)",
+  "page_content": "Various kinds of recognition: \n(a) Face recognition with pictorial structures\n(b) Instance (known object) recognition \n(c) Real-time face detection \n(d) Feature-based recognition \n(e) Instance segmentation using Mask R-CNN \n(f) Pose estimation \n(g) Panoptic segmentation \n(h) Video action recognition\n(i) Image captioning",
   "metadata": {
     "sources": [
-      "02_Object Detection.pdf (page 3)",
-      "02_Object Detection.pdf (page 4)",
-      "02_Object Detection.pdf (page 5)"
+      "02_Object Detection.pdf (page 2)"
     ]
   }
 }

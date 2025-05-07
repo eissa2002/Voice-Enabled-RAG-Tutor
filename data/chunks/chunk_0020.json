@@ -1,10 +1,8 @@
 {
-  "page_content": "conditional GAN (cGAN)\n•the network iterates (during training) \nover all the classes that we wish to \nsynthesize. \n•The generator G gets both a class id c \nand a random noise vector z as input, \nand the discriminator D gets the class \nid as well and needs to determine if \nits input is a real member of the \ngiven class",
+  "page_content": "They then proposed the CNN.\n• Now, CNN has become one of the research hotspots in many scientific fields, especially in the pattern\nclassification field. The network is widely used because it can avoid complex pre-processing of images\nand directly input original images.",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 22)",
-      "03_DL for Computer Vision.pdf (page 23)",
-      "03_DL for Computer Vision.pdf (page 24)"
+      "03_DL for Computer Vision.pdf (page 3)"
     ]
   }
 }

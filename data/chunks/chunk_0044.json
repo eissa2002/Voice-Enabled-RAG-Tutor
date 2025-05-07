@@ -1,10 +1,8 @@
 {
-  "page_content": "Harris Features (in red)\n\nFeature Description\n\nFeature Descriptor\n• How can we extract feature descriptors that are invariant to variations \n(transformations) and yet still discriminative enough to establish correct \ncorrespondences?\n?",
+  "page_content": "Training Rules of GAN\n• Optimization objective:\n◦ Value function\n◦ In the early training stage, when the outcome of G is very poor, D determines that the generated sample is fake \nwith high confidence, because the sample is obviously different from training data. In this case, log(1-D(G(z))) is \nsaturated (where the gradient is 0, and iteration cannot be performed). Therefore, we choose to train G only by \nminimizing [-log(D(G(z))].\n( )\n( ) [ ( )] [ ( ( ( ) 1 ], ))\ndata z zx p x z pGD\nmin max V D G E logD x E log D G z  （ ）",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 48)",
-      "04_Feature Detection and Matching.pdf (page 49)",
-      "04_Feature Detection and Matching.pdf (page 50)"
+      "03_DL for Computer Vision.pdf (page 24)"
     ]
   }
 }

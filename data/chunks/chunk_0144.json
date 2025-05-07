@@ -1,0 +1,8 @@
+{
+  "page_content": "2D coordinate transformations\n• translation: x’ = x + t x = (x,y)\n• rotation: x’ = R x + t\n• similarity: x’ = s R x + t\n• affine: x’ = A x + t\n• perspective: x’ H x x = (x,y,1)\n(x is a homogeneous coordinate)",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 17)"
+    ]
+  }
+}

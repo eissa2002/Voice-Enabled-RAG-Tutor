@@ -1,10 +1,8 @@
 {
-  "page_content": "Autocorrelation: Indicator of “Good”ness\n\n\n\nWyx\nyxIvyuxIvuR\n),(\n),(),(),(\n\nAutocorrelation Calculation\nAutocorrelation can be approximated by \nsum-squared-difference (SSD):\n\n\n\nWyx\nyxIvyuxIvuR\n),(\n),(),(),(\n\nCorner Detection: Mathematics\n \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nChange in appearance of window w(x,y) \nfor the shift [u,v]:\nI(x, y)\nE(u, v)\nE(3,2)\nw(x, y)",
+  "page_content": "CNN Example\nhttps://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9315927",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 18)",
-      "04_Feature Detection and Matching.pdf (page 19)",
-      "04_Feature Detection and Matching.pdf (page 20)"
+      "03_DL for Computer Vision.pdf (page 13)"
     ]
   }
 }

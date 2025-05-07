@@ -1,0 +1,8 @@
+{
+  "page_content": "Cylindrical Mapping\nf\nf\nx\nx\n1) For red image: compute h, theta on cylindrical surface from (u, v)\n2) For green image: map to first image plane, than map to cylindrical surface",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 71)"
+    ]
+  }
+}

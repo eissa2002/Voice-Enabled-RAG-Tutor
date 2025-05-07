@@ -1,0 +1,8 @@
+{
+  "page_content": "Motion models\n• What happens when we take two images with a camera and \ntry to align them?\n• translation?\n• rotation?\n• scale?\n• affine?\n• Perspective?",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 14)"
+    ]
+  }
+}

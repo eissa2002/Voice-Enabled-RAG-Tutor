@@ -1,0 +1,8 @@
+{
+  "page_content": "Feature Detection Algorithm\n•Compute the gradient at each point in the image\n•Create the M matrix for each point from the gradients in a window \n•Compute the eigenvalues of each M\n•Find points with large response (- > threshold)\n•Choose those points as features where - is a local maximum",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 42)"
+    ]
+  }
+}

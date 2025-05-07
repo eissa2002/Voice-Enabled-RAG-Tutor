@@ -1,10 +1,8 @@
 {
-  "page_content": "Choosing interest points\n\nStable (Good) Features: High Accuracy in Localization\n\nStable (Good) Features\n“flat” region:\nno change in all \ndirections\n“edge”:  \nno change along \nthe edge direction\n“corner”:\nsignificant change in all \ndirections (uniqueness)\nGood featureAperture problem",
+  "page_content": "Fully Connected Layer\n• The fully connected layer is essentially a classifier. The features extracted on the convolutional layer\nand pooling layer are straightened and placed at the fully connected layer to output and classify\nresults.\n• Generally, the Softmax function is used as the activation function of the final fully connected output\nlayer to combine all local features into global features and calculate the score of each type.\nσ(z)𝑗 = 𝑒𝑧𝑗\n 𝑘𝑒𝑧𝑘",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 15)",
-      "04_Feature Detection and Matching.pdf (page 16)",
-      "04_Feature Detection and Matching.pdf (page 17)"
+      "03_DL for Computer Vision.pdf (page 12)"
     ]
   }
 }

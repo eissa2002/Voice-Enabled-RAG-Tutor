@@ -1,0 +1,8 @@
+{
+  "page_content": "RANSAC\nRed: \nrejected by 2nd nearest neighbor criterion\nBlue:\nRansac outliers\nYellow:\ninliers",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 53)"
+    ]
+  }
+}

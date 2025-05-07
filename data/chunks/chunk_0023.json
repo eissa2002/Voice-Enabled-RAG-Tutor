@@ -1,10 +1,8 @@
 {
-  "page_content": "Inception Module\n\nResNet: Residual Networks\n\n3D convolutional networks",
+  "page_content": "Architecture of Convolutional Neural Network\nInput \nimage\nConvolutional \nlayer\nConvolutional \nlayer\nPooling \nlayer\nPooling \nlayer\nFully connected \nlayer\nThree-feature \nimage\nThree-feature \nimage\nFive-feature \nimage\nFive-feature \nimage\nOutput \nlayer\nConvolution + \nnonlinearity\nMax pooling\nConvolution layers + pooling layers Fully connected layer\nMulti-\ncategory\nVectorization\nBird\nSunset\nDog\nCat\nPbird\nPsunset\nPdog\nPcat",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 31)",
-      "03_DL for Computer Vision.pdf (page 32)",
-      "03_DL for Computer Vision.pdf (page 33)"
+      "03_DL for Computer Vision.pdf (page 5)"
     ]
   }
 }

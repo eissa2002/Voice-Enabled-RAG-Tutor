@@ -3,34 +3,34 @@
 import json
 from pathlib import Path
 
-from loaders import load_documents
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from loaders import load_documents  # your existing loader
 
-def group_documents(docs, pages_per_chunk=3):
+def group_documents(docs, pages_per_chunk=1):
     """
     Batch together consecutive page-documents into multi-page Documents.
+    With slides, we want 1 slide per chunk.
     """
     grouped = []
     for i in range(0, len(docs), pages_per_chunk):
         batch = docs[i : i + pages_per_chunk]
-        # join their text
         content = "\n\n".join(d.page_content for d in batch)
-        # collect their metadata if you want to trace back
-        sources = [f"{d.metadata['source']} (page {d.metadata['page']})"
+        # keep the same metadata grouping
+        sources = [f"{d.metadata['source']} (page {d.metadata.get('page', d.metadata.get('slide_number', '?'))})"
                    for d in batch]
-        metadata = {"sources": sources}
-        grouped.append(Document(page_content=content, metadata=metadata))
+        grouped.append(Document(page_content=content, metadata={"sources": sources}))
     return grouped
 
 def split_documents(
     data_dir: str,
-    pages_per_chunk: int = 3,
-    chunk_size: int = 1000,
-    chunk_overlap: int = 300
+    pages_per_chunk: int = 1,     # one slide per super-doc
+    chunk_size: int = 600,        # ~600 chars ≈ 1–2 paragraphs
+    chunk_overlap: int = 120      # overlap by ~120 chars (~1–2 sentences)
 ):
     # 1. Load every single-page Document
     docs = load_documents(data_dir)
+
     # 2. Group N pages into one bigger Document
     grouped = group_documents(docs, pages_per_chunk=pages_per_chunk)
 
@@ -54,9 +54,9 @@ def split_documents(
             encoding="utf-8"
         )
 
-    print(f"Grouped into {len(grouped)} super-docs; split into {len(chunked_docs)} chunks.")
+    print(f"Grouped into {len(grouped)} slide-docs; split into {len(chunked_docs)} chunks.")
     return chunked_docs
 
 if __name__ == "__main__":
-    chunks = split_documents("data", pages_per_chunk=3)
+    chunks = split_documents("data")
     print(f"Total chunks created: {len(chunks)}")

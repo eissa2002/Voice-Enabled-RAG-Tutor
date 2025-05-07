@@ -1,0 +1,8 @@
+{
+  "page_content": "Plane perspective mosaics\n– 8-parameter generalization of affine motion\n• works for pure rotation or planar surfaces\n– Limitations:\n• local minima \n• slow convergence\n• difficult to control interactively",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 26)"
+    ]
+  }
+}

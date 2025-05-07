@@ -1,0 +1,8 @@
+{
+  "page_content": "Eigenvalues and Eigenvectorsof the \nAuto-correlation Matrix\nl- £ E(u, v) = uT Mu £ l+\nwhere            and          are the two eigenvalues of      . \n\n\nM\nThe eigenvector          corresponding to      \ngives the direction of largest increase in E, \nwhile the eigenvector         corresponding to    \ngives the direction of smallest increase in E.\n\n\ne\ne\nlower limit upper limit",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 40)"
+    ]
+  }
+}

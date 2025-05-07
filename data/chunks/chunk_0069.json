@@ -1,10 +1,8 @@
 {
-  "page_content": "49\nSimple example: fit a line\n• Pick 2 points\n• Fit line\n• Count inliers\n49\n4 inliers\n\n50\nSimple example: fit a line\n• Pick 2 points\n• Fit line\n• Count inliers\n50\n9 inliers\n\n51\nSimple example: fit a line\n• Pick 2 points\n• Fit line\n• Count inliers\n51\n8 inliers",
+  "page_content": "Feature Detection",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 48)",
-      "05_Image Stitching.pdf (page 49)",
-      "05_Image Stitching.pdf (page 50)"
+      "04_Feature Detection and Matching.pdf (page 14)"
     ]
   }
 }

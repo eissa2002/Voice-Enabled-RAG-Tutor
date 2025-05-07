@@ -1,10 +1,8 @@
 {
-  "page_content": "Object Detection\nImage by kirkh.deviantart.com\n\nVarious kinds of recognition: \n(a) Face recognition with pictorial structures\n(b) Instance (known object) recognition \n(c) Real-time face detection \n(d) Feature-based recognition \n(e) Instance segmentation using Mask R-CNN \n(f) Pose estimation \n(g) Panoptic segmentation \n(h) Video action recognition\n(i) Image captioning\n\nObject Recognition\n•General object recognition falls into two broad categories\n•Instance Recognition: involves re-recognizing a known 2D or 3D rigid object, \npotentially being viewed from a novel viewpoint, against a cluttered \nbackground, and with partial occlusions\n•Class Recognition: is also known as category-level or generic object recognition \nis the much more challenging problem of recognizing any instance of a \nparticular general class, such as “cat”, “car”, or “bicycle”.",
+  "page_content": "Object Detection\nImage by kirkh.deviantart.com",
   "metadata": {
     "sources": [
-      "02_Object Detection.pdf (page 0)",
-      "02_Object Detection.pdf (page 1)",
-      "02_Object Detection.pdf (page 2)"
+      "02_Object Detection.pdf (page 1)"
     ]
   }
 }

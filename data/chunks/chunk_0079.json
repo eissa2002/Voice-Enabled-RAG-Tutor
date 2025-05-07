@@ -1,10 +1,8 @@
 {
-  "page_content": "Good window size\n0\n1\n“Optimal” window:  smooth but not ghosted\n• Doesn’t always work...\n\nPyramid blending\nCreate a Laplacian pyramid, blend each level\n• Burt, P. J. and Adelson, E. H., A multiresolution spline with applications to image mosaics, ACM Transactions on \nGraphics, 42(4), October 1983, 217-236.\n\nGaussian Pyramid Laplacian Pyramid\nThe Laplacian Pyramid\n0G\n1G\n2G\nnG\n- =\n0L\n- =\n1L\n- =\n2L\nnn GL \n)expand( 1 iii GGL\n)expand( 1 iii GLG",
+  "page_content": " \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nWe want to find out how this function behaves for small shifts\nChange in appearance of window w(x,y) \nfor the shift [u,v]:\nE(u, v)\nCorner Detection: Mathematics",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 78)",
-      "05_Image Stitching.pdf (page 79)",
-      "05_Image Stitching.pdf (page 80)"
+      "04_Feature Detection and Matching.pdf (page 24)"
     ]
   }
 }

@@ -1,0 +1,8 @@
+{
+  "page_content": "Interpreting the eigenvalues\n1\n2\n“Corner”\n1 and 2 are large,\n1 ~ 2;\nE increases in all \ndirections\n1 and 2 are small;\nE is almost constant \nin all directions\n“Edge” \n1 >> 2\n“Edge” \n2 >> 1\n“Flat” \nregion\nClassification of image points using eigenvalues \nof M:",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 36)"
+    ]
+  }
+}

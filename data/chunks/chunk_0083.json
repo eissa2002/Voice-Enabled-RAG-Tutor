@@ -1,10 +1,8 @@
 {
-  "page_content": "Choosing seams\n• Better method: dynamic program to find seam along well-\nmatched regions\nIllustration: http://en.wikipedia.org/wiki/File:Rochester_NY .jpg\n\nGain compensation\n• Simple gain adjustment\n– Compute average RGB intensity of each image in \noverlapping region\n– Normalize intensities by ratio of averages\n\nBlending Comparison",
+  "page_content": "Corner Detection: Mathematics\n \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nSecond-order Taylor expansion of E(u,v) about (0,0):\n),(),(),(2)0,0(\n),(),(),(2)0,0(\n),(),(),(2)0,0(\n0)0,0(\n0)0,0(\n0)0,0(\n,\n,\n,\nyxIyxIyxwE\nyxIyxIyxwE\nyxIyxIyxwE\nE\nE\nE\nyx\nyx\nuv\nyy\nyx\nvv\nxx\nyx\nuu\nv\nu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n v\nu\nEE\nEEvuE\nEvuEvuE\nvvuv\nuvuu\nv\nu\n)0,0()0,0(\n)0,0()0,0(][2\n1\n)0,0(\n)0,0(][)0,0(),(",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 90)",
-      "05_Image Stitching.pdf (page 91)",
-      "05_Image Stitching.pdf (page 92)"
+      "04_Feature Detection and Matching.pdf (page 28)"
     ]
   }
 }

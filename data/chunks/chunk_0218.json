@@ -1,0 +1,8 @@
+{
+  "page_content": "Gain compensation\n• Simple gain adjustment\n– Compute average RGB intensity of each image in \noverlapping region\n– Normalize intensities by ratio of averages",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 92)"
+    ]
+  }
+}

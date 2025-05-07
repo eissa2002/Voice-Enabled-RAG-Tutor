@@ -1,0 +1,8 @@
+{
+  "page_content": "Interpolation\n• Possible interpolation filters:\n– nearest neighbor\n– bilinear\n– bicubic (interpolating)",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 23)"
+    ]
+  }
+}

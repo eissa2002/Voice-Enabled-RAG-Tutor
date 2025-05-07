@@ -1,0 +1,8 @@
+{
+  "page_content": "Motion models\nTranslation\n2 unknowns\nAffine\n6 unknowns\nPerspective\n8 unknowns\n3D rotation\n3 unknowns",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 24)"
+    ]
+  }
+}

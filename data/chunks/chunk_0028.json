@@ -1,10 +1,8 @@
 {
-  "page_content": "Points and patches (cont.)\n• There are two main approaches to finding feature points and their \ncorrespondences. \n• The first is to find features in one image that can be accurately tracked using a \nlocal search technique, such as correlation or least squares\n• The second is to independently detect features in all the images under \nconsideration and then match features based on their local appearance\n\n\n\nPoint vs. Line Features",
+  "page_content": "Convolutional Layer (cont.)\n• Volume Size W1×H1×D1\n• Four Hyperparameters:\n• Number of filters K\n• Filter size F\n• Stride S\n• Zero Padding P\n• Output volume size W2×H2×D2\n• W2= [(W1−F+2P)/S]+1\n• H2= [(H1−F+2P)/S]+1\n• D2=K\n• Number of parameter : F⋅F⋅D1 weights per filter , total = (F⋅F⋅D1)⋅K + K (for bias).",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 6)",
-      "04_Feature Detection and Matching.pdf (page 7)",
-      "04_Feature Detection and Matching.pdf (page 8)"
+      "03_DL for Computer Vision.pdf (page 9)"
     ]
   }
 }

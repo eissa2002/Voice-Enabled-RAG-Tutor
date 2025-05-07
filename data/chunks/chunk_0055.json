@@ -1,10 +1,8 @@
 {
-  "page_content": "4. Blend the two together to create a mosaic\n\n5. Repeat for all images\n\nHow to do it?\n• Basic Procedure\n1. Take a sequence of images from the same position\n1. Rotate the camera about its optical center\n2. Compute transformation between second image and first\n3. Shift the second image to overlap with the first\n4. Blend the two together to create a mosaic\n5. If there are more images, repeat\n✓",
+  "page_content": "RNN",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 6)",
-      "05_Image Stitching.pdf (page 7)",
-      "05_Image Stitching.pdf (page 8)"
+      "03_DL for Computer Vision.pdf (page 35)"
     ]
   }
 }

@@ -1,10 +1,8 @@
 {
-  "page_content": "1. Take a sequence of images from the same \nposition\n• Rotate the camera about its optical center\n\n2. Compute transformation between images\n• Extract interest points\n• Find Matches\n• Compute transformation\n ?\n\n3. Shift the images to overlap",
+  "page_content": "3D convolutional networks",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 3)",
-      "05_Image Stitching.pdf (page 4)",
-      "05_Image Stitching.pdf (page 5)"
+      "03_DL for Computer Vision.pdf (page 34)"
     ]
   }
 }

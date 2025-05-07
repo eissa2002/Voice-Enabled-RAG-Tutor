@@ -1,10 +1,8 @@
 {
-  "page_content": "\n\n\n\n\n\nyyyx\nyxxx\nIIII\nIIII\nyxwM ),(\nx\nIIx\n\n\ny\nIIy\n\n\ny\nI\nx\nIII yx\n\n\n\n\nCorners as distinctive interest points\n2 x 2 matrix of image derivatives (averaged in neighborhood of a point).\nNotation:\n\nThe surface E(u,v) is locally approximated by a quadratic form. \nInterpreting the second moment matrix\n\n\n\n v\nuMvuvuE ][),(\n \n\n\n\n\n\n\n\nyx yyx\nyxx\nIII\nIIIyxwM\n,\n2\n2\n),(\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n1\n,\n2\n2\n0\n0),( \n\nyx yyx\nyxx\nIII\nIIIyxwM\nFirst, consider the axis-aligned case \n(gradients are either horizontal or vertical)\nIf either λ is close to 0, then this is not a corner, so \nlook for locations where both are large.\nInterpreting the second moment matrix",
+  "page_content": "CNN Example\n•How many parameter will be needed if Fully Connected layer used instead of \nfirst convolutional layer?\n•Input = 100 x 100 x 3 = 30,000\n•The convolutional layer consists of 200 3x3 Filter so, 3 x 3 x 3 x 200 = 5400 \nneurons will be needed\n•Total No. of Parameter for Neural Network Layer  = N x M + M\n= 30,000 x 5400 + 5400 = 162,005,400",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 30)",
-      "04_Feature Detection and Matching.pdf (page 31)",
-      "04_Feature Detection and Matching.pdf (page 32)"
+      "03_DL for Computer Vision.pdf (page 19)"
     ]
   }
 }

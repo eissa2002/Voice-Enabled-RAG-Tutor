@@ -1,0 +1,8 @@
+{
+  "page_content": "\n\n\n\n\n\n\n\n\n\n\n\n2\n1\n,\n2\n2\n0\n0),( \n\nyx yyx\nyxx\nIII\nIIIyxwM\nFirst, consider the axis-aligned case \n(gradients are either horizontal or vertical)\nIf either λ is close to 0, then this is not a corner, so \nlook for locations where both are large.\nInterpreting the second moment matrix",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 33)"
+    ]
+  }
+}

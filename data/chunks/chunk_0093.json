@@ -1,0 +1,8 @@
+{
+  "page_content": "Harris corner detector\n1) Compute M matrix for each image window to get their cornerness scores.\n2) Find points whose surrounding window gave large corner response (f> \nthreshold)\n3) Take the points of local maxima, i.e., perform non-maximum suppression",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 38)"
+    ]
+  }
+}

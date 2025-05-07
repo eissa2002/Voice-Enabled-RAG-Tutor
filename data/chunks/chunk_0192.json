@@ -1,0 +1,8 @@
+{
+  "page_content": "Problem:  Drift\n• Solution\n– add another copy of first image at the end\n– this gives a constraint:  yn = y1\n– there are a bunch of ways to solve this problem\n• add displacement of (y1 – yn)/(n -1) to each image after the \nfirst\n• compute a global warp:  y’= y + ax\n• run a big optimization problem, incorporating this constraint\n– best solution, but more complicated\n– known as “bundle adjustment”\n(x1,y1)\ncopy of first image\n(xn,yn)",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 66)"
+    ]
+  }
+}

@@ -1,10 +1,8 @@
 {
-  "page_content": "De-Ghosting\n\nRecognizing Panoramas\nBrown and Lowe 2003, 2007Some of following material from Brown and Lowe 2003 talk\n\nRecognizing Panoramas\nInput: N images\n1. Extract SIFT points, descriptors from all images\n2. Find K-nearest neighbors for each point (K=4)\n3. For each image\na) Select M candidate matching images by counting matched keypoints\n(m=6)\nb) Solve homography Hij for each matched image",
+  "page_content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nv\nu\nyxIyxwyxIyxIyxw\nyxIyxIyxwyxIyxw\nvuvuE\nyx\ny\nyx\nyx\nyx\nyx\nyx\nx\n,\n2\n,\n,,\n2\n),(),(),(),(),(\n),(),(),(),(),(\n][),(\n \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nSecond-order Taylor expansion of E(u,v) about (0,0):\n),(),(),(2)0,0(\n),(),(),(2)0,0(\n),(),(),(2)0,0(\n0)0,0(\n0)0,0(\n0)0,0(\n,\n,\n,\nyxIyxIyxwE\nyxIyxIyxwE\nyxIyxIyxwE\nE\nE\nE\nyx\nyx\nuv\nyy\nyx\nvv\nxx\nyx\nuu\nv\nu\n\n\n\n\n\n\n\n\n\nCorner Detection: Mathematics",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 93)",
-      "05_Image Stitching.pdf (page 94)",
-      "05_Image Stitching.pdf (page 95)"
+      "04_Feature Detection and Matching.pdf (page 29)"
     ]
   }
 }

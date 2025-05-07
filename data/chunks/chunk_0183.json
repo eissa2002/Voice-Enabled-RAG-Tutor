@@ -1,0 +1,8 @@
+{
+  "page_content": "Computing homography\n• Assume we have four matched points: How do we compute homography H?\nNormalized DLT\n1. Normalize coordinates for each image\na) Translate for zero mean\nb) Scale so that average distance to origin is ~sqrt(2)\n– This makes problem better behaved numerically \n2. Compute     using DLT in normalized coordinates\n3. Unnormalize: \nTxx ~\nxTx ~\nTHTH ~1\nii Hxx \nH~",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 57)"
+    ]
+  }
+}

@@ -1,10 +1,8 @@
 {
-  "page_content": "RNN\n\nVision Transformer (ViT)",
+  "page_content": "Single-Filter Calculation\n• Description of convolution calculation",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 34)",
-      "03_DL for Computer Vision.pdf (page 35)",
-      "03_DL for Computer Vision.pdf (page 36)"
+      "03_DL for Computer Vision.pdf (page 6)"
     ]
   }
 }

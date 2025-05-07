@@ -1,0 +1,8 @@
+{
+  "page_content": "Scale Invariant Feature Transform\n• Divide the 16x16 window into a 4x4 grid of cells (2x2 case shown below)\n• Compute an orientation histogram for each cell\n• 16 cells * 8 orientations = 128 dimensional descriptor\nby David Lowe",
+  "metadata": {
+    "sources": [
+      "04_Feature Detection and Matching.pdf (page 66)"
+    ]
+  }
+}

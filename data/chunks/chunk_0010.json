@@ -1,10 +1,8 @@
 {
-  "page_content": "Convolutional Layer\n• The basic architecture of a CNN is multi-channel convolution consisting of multiple single convolutions. The \noutput of the previous layer (or the original image of the first layer) is used as the input of the current layer. It \nis then convolved with the filter in the layer and serves as the output of this layer. The convolution kernel of \neach layer is the weight to be learned. Similar to FCN, after the convolution is complete, the result should be \nbiased and activated through activation functions before being input to the next layer.\nInput \ntensor\nOutput \ntensor\nOutput\nActivate\nBiasConvolutional \nkernel\n1W\n2W\nWn\nnb\n2b\n1b\nFn\n1F\n\nConvolutional Layer (cont.)\n• Volume Size W1×H1×D1\n• Four Hyperparameters:\n• Number of filters K\n• Filter size F\n• Stride S\n• Zero Padding P\n• Output volume size W2×H2×D2\n• W2= [(W1−F+2P)/S]+1\n• H2= [(H1−F+2P)/S]+1\n• D2=K\n• Number of parameter : F⋅F⋅D1 weights per filter , total = (F⋅F⋅D1)⋅K + K (for bias).",
+  "page_content": "Object Detection\n•The main task in object detection is to put accurate bounding boxes around all \nthe objects of interest and to correctly label such objects.",
   "metadata": {
     "sources": [
-      "03_DL for Computer Vision.pdf (page 7)",
-      "03_DL for Computer Vision.pdf (page 8)",
-      "03_DL for Computer Vision.pdf (page 9)"
+      "02_Object Detection.pdf (page 10)"
     ]
   }
 }

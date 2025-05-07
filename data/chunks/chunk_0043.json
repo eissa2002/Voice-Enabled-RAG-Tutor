@@ -1,10 +1,8 @@
 {
-  "page_content": "f value (red = high, blue = low)\n\nThreshold (f > value)\n\nFind Local Maxima of f",
+  "page_content": "Generative Model and Discriminative Model\nGenerative network\n◦ Generates sample data\n◦ Input: Gaussian white noise vector z\n◦ Output: sample data vector x\n( ; )Gx G z \nz x\nG\n Discriminator network\n Determines whether sample data is \nreal\n Input: real sample data 𝑥𝑟𝑒𝑎𝑙 and\ngenerated sample data 𝑥=𝐺 𝑧\n Output: probability that determines \nwhether the sample is real\n( ; )Dy D x \n𝑥𝑟𝑒𝑎𝑙\nyD\nx",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 45)",
-      "04_Feature Detection and Matching.pdf (page 46)",
-      "04_Feature Detection and Matching.pdf (page 47)"
+      "03_DL for Computer Vision.pdf (page 23)"
     ]
   }
 }

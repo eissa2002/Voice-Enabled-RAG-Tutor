@@ -1,10 +1,8 @@
 {
-  "page_content": "Corner Detection: Mathematics\n \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nSecond-order Taylor expansion of E(u,v) about (0,0):\n),(),(),(2)0,0(\n),(),(),(2)0,0(\n),(),(),(2)0,0(\n0)0,0(\n0)0,0(\n0)0,0(\n,\n,\n,\nyxIyxIyxwE\nyxIyxIyxwE\nyxIyxIyxwE\nE\nE\nE\nyx\nyx\nuv\nyy\nyx\nvv\nxx\nyx\nuu\nv\nu\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n v\nu\nEE\nEEvuE\nEvuEvuE\nvvuv\nuvuu\nv\nu\n)0,0()0,0(\n)0,0()0,0(][2\n1\n)0,0(\n)0,0(][)0,0(),(\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nv\nu\nyxIyxwyxIyxIyxw\nyxIyxIyxwyxIyxw\nvuvuE\nyx\ny\nyx\nyx\nyx\nyx\nyx\nx\n,\n2\n,\n,,\n2\n),(),(),(),(),(\n),(),(),(),(),(\n][),(\n \n2\n,\n( , ) ( , ) ( , ) ( , )\nxy\nE u v w x y I x u y v I x y   \nSecond-order Taylor expansion of E(u,v) about (0,0):\n),(),(),(2)0,0(\n),(),(),(2)0,0(\n),(),(),(2)0,0(\n0)0,0(\n0)0,0(\n0)0,0(\n,\n,\n,\nyxIyxIyxwE\nyxIyxIyxwE\nyxIyxIyxwE\nE\nE\nE\nyx\nyx\nuv\nyy\nyx\nvv\nxx\nyx\nuu\nv\nu\n\n\n\n\n\n\n\n\n\nCorner Detection: Mathematics",
+  "page_content": "Layer 3: Fully Connected Layer (Dense)\n•Input: output of layer 2 with volume 96 x 96 x 100 \n◦ Layer 3 consists of 50 Neuron\n•Total No. of Parameter for Neural Network Layer  = N x M + M\n= (96 x 96 x 100 ) x 50 + 50 = 46,080,050",
   "metadata": {
     "sources": [
-      "04_Feature Detection and Matching.pdf (page 27)",
-      "04_Feature Detection and Matching.pdf (page 28)",
-      "04_Feature Detection and Matching.pdf (page 29)"
+      "03_DL for Computer Vision.pdf (page 17)"
     ]
   }
 }

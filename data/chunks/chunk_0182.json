@@ -1,0 +1,8 @@
+{
+  "page_content": "Richard Szeliski Image Stitching 56\nRotational mosaic\n• Projection equations\n1. Project from image to 3D ray\n• (x0,y0,z0) = (u0-uc,v0-vc,f)\n2. Rotate the ray by camera motion\n• (x1,y1,z1) = R01 (x0,y0,z0)\n3. Project back into new (source) image\n• (u1,v1) = (fx1/z1+uc,fy1/z1+vc)",
+  "metadata": {
+    "sources": [
+      "05_Image Stitching.pdf (page 56)"
+    ]
+  }
+}

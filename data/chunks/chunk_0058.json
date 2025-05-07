@@ -1,10 +1,8 @@
 {
-  "page_content": "Parametric (global) warping\n• Examples of parametric warps:\ntranslation\n rotation aspect\naffine\nperspective\n\n2D coordinate transformations\n• translation: x’ = x + t x = (x,y)\n• rotation: x’ = R x + t\n• similarity: x’ = s R x + t\n• affine: x’ = A x + t\n• perspective: x’ H x x = (x,y,1)\n(x is a homogeneous coordinate)\n\nImage Warping\n• Given a coordinate transform x’ = h(x) and a source image f(x), \nhow do we compute a transformed image g(x’) = f(h(x))?\nf(x) g(x’)x x’\nh(x)",
+  "page_content": "Object Recognition\nBy: https://dokumen.tips/",
   "metadata": {
     "sources": [
-      "05_Image Stitching.pdf (page 15)",
-      "05_Image Stitching.pdf (page 16)",
-      "05_Image Stitching.pdf (page 17)"
+      "04_Feature Detection and Matching.pdf (page 3)"
     ]
   }
 }
