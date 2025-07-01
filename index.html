@@ -6,60 +6,101 @@
     <title>Voice-Enabled RAG Tutor</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
             background: #f0f2f5;
-            color: #333;
         }
 
         .container {
-            max-width: 720px;
-            margin: 2rem auto;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .chat-main {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .chat-section {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 16px 0 0 16px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            padding: 2rem;
+            position: relative;
+            min-width: 0;
+            height: 100vh;
         }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
+        .chat-history {
+            flex: 1 1 auto;
+            overflow-y: auto;
+            padding: 2rem 2rem 9rem 2rem;
+            display: flex;
+            flex-direction: column;
         }
 
-        #avatar {
-            display: block;
-            margin: 0 auto 1.5rem;
-            width: 180px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        .chat-input-area {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1.2rem 2rem;
+            background: #fafafa;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        #chatForm {
+            display: flex;
+            gap: 0.7rem;
+        }
+
+        #questionInput {
+            flex: 1;
+            padding: 0.7rem 1rem;
+            border: 1px solid #b0b0b0;
+            border-radius: 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        #sendBtn {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 0 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        #sendBtn:disabled {
+            background: #a5d6a7;
         }
 
         .controls {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .controls input {
-            padding: 0.5rem;
-            width: 60%;
-            margin-right: 0.5rem;
-            font-size: 1rem;
+            display: flex;
+            gap: 1rem;
         }
 
         .controls button {
             background: #4caf50;
-            color: white;
+            color: #fff;
             border: none;
-            padding: 0.7rem 1.4rem;
-            margin: 0 0.2rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 4px;
             font-size: 1rem;
             font-weight: 500;
@@ -72,43 +113,158 @@
             cursor: not-allowed;
         }
 
-        .controls button:hover:not(:disabled) {
-            background: #43a047;
+        .avatar-section {
+            flex: 2;
+            background: #f6fafd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 16px 16px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            min-width: 280px;
+            height: 100vh;
+            position: relative;
         }
 
-        .panel {
-            background: #fafafa;
-            border-left: 4px solid #4caf50;
-            border-radius: 4px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
+        #avatar {
+            width: 350px;
+            max-width: 90vw;
+            border-radius: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.13);
+            background: #fff;
         }
 
-        .panel strong {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+        .msg-row {
+            margin-bottom: 1.1rem;
+            display: flex;
+            flex-direction: column;
         }
 
-        #responseAudio {
-            width: 100%;
-            margin-top: 1rem;
-            outline: none;
+        .msg-user {
+            align-items: flex-end;
         }
 
-        @media (max-width: 600px) {
+        .msg-bot {
+            align-items: flex-start;
+        }
+
+        .msg-bubble {
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            max-width: 80%;
+            font-size: 1.08rem;
+            line-height: 1.5;
+            background: #e7fbe9;
+            color: #333;
+            margin-bottom: 0.3rem;
+            box-shadow: 0 1px 3px rgba(44, 62, 80, 0.03);
+            word-break: break-word;
+        }
+
+        .msg-user .msg-bubble {
+            background: #e8edff;
+        }
+
+        .citation-list {
+            color: #728099;
+            font-size: 0.93rem;
+            margin: 0.4rem 0 0 14px;
+            line-height: 1.4;
+            white-space: pre-line;
+        }
+
+        .audio-row {
+            margin: 0.2rem 0 0.8rem 0;
+        }
+
+        .waiting-loader-bubble {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.1rem;
+        }
+
+        .waiting-loader {
+            display: flex;
+            align-items: center;
+            background: #e7fbe9;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            min-width: 48px;
+            min-height: 32px;
+            box-shadow: 0 1px 3px rgba(44, 62, 80, 0.03);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background: #b0b4bd;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: blink 1.3s infinite both;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.18s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.36s;
+        }
+
+        @keyframes blink {
+
+            0%,
+            80%,
+            100% {
+                opacity: 0.3;
+            }
+
+            40% {
+                opacity: 1;
+            }
+        }
+
+        @media(max-width:900px) {
             .container {
-                margin: 1rem;
-                padding: 1rem;
+                padding: 0;
+            }
+
+            .chat-main {
+                flex-direction: column;
+            }
+
+            .avatar-section {
+                height: 280px;
+                border-radius: 0 0 16px 16px;
+            }
+
+            .chat-section {
+                border-radius: 16px 16px 0 0;
+                height: auto;
+            }
+        }
+
+        @media(max-width:600px) {
+            .container {
+                max-width: 100vw;
+            }
+
+            .chat-section,
+            .avatar-section {
+                border-radius: 0;
             }
 
             #avatar {
-                width: 120px;
+                width: 130px;
             }
 
-            .controls button {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
+            .chat-history {
+                padding: 1rem 0.3rem 10rem 0.3rem;
+            }
+
+            .chat-input-area {
+                padding: 1rem 0.4rem;
             }
         }
     </style>
@@ -116,120 +272,274 @@
 
 <body>
     <div class="container">
-        <h1>Voice-Enabled RAG Tutor</h1>
-        <video id="avatar" src="/static/avatar waiting.mp4" autoplay loop muted></video>
-
-        <div class="controls">
-            <!-- TEXT CHAT -->
-            <input id="chatInput" type="text" placeholder="Type your question…" />
-            <button id="sendBtn">✉️ Send</button>
-            <br /><br />
-            <!-- VOICE CHAT -->
-            <button id="recordBtn">🎤 Record Question</button>
-            <button id="stopBtn" disabled>⏹ Stop</button>
+        <div class="chat-main">
+            <div class="chat-section">
+                <div class="chat-history" id="chatHistory"></div>
+                <div class="chat-input-area">
+                    <form id="chatForm" autocomplete="off" enctype="multipart/form-data">
+                        <input id="questionInput" type="text" placeholder="Type your question…" />
+                        <button id="sendBtn">Send</button>
+                    </form>
+                    <div class="controls">
+                        <button id="recordBtn">🎤 Record Question</button>
+                        <button id="stopBtn" disabled>Stop</button>
+                    </div>
+                </div>
+            </div>
+            <div class="avatar-section">
+                <video id="avatar" src="/static/avatar waiting.mp4" autoplay loop muted playsinline></video>
+                <video id="avatarTalkingPreload" src="/static/avatar talking.mp4" preload="auto" muted loop playsinline
+                    style="display:none;"></video>
+                <video id="avatarWaitingPreload" src="/static/avatar waiting.mp4" preload="auto" muted loop playsinline
+                    style="display:none;"></video>
+            </div>
         </div>
-
-        <div class="panel" id="transcript">
-            <strong>Transcript:</strong>
-            <div id="txt">—</div>
-        </div>
-        <div class="panel" id="answer">
-            <strong>Answer:</strong>
-            <div id="ans">—</div>
-        </div>
-        <div class="panel" id="citation">
-            <strong>Sources:</strong>
-            <div id="cite">—</div>
-        </div>
-
-        <audio id="responseAudio" controls></audio>
     </div>
+    <audio id="responseAudio" controls style="display:none"></audio>
 
     <script>
         let mediaRecorder, audioChunks = [], userStream;
+        let chatHistory = [];
+        let waitingLoaderActive = false;
+        let typingInterval = null;
+        let loaderTimeoutId = null;
+
         const avatarEl = document.getElementById("avatar");
         const recordBtn = document.getElementById("recordBtn");
         const stopBtn = document.getElementById("stopBtn");
-        const chatInput = document.getElementById("chatInput");
-        const sendBtn = document.getElementById("sendBtn");
-        const txtEl = document.getElementById("txt");
-        const ansEl = document.getElementById("ans");
-        const citeEl = document.getElementById("cite");
         const audioEl = document.getElementById("responseAudio");
+        const chatForm = document.getElementById("chatForm");
+        const questionEl = document.getElementById("questionInput");
+        const chatHistoryEl = document.getElementById("chatHistory");
+        const avatarTalkingPreload = document.getElementById("avatarTalkingPreload");
+        const avatarWaitingPreload = document.getElementById("avatarWaitingPreload");
 
-        // —— TEXT CHAT ——
-        sendBtn.addEventListener("click", async () => {
-            const question = chatInput.value.trim();
-            if (!question) return;
-            // disable all controls
-            [sendBtn, recordBtn, stopBtn].forEach(b => b.disabled = true);
-            txtEl.textContent = question;
-            ansEl.textContent = "…thinking…";
-            citeEl.textContent = "—";
-
-            const form = new FormData();
-            form.append("question", question);
-            const res = await fetch("/chat/", { method: "POST", body: form });
-            const data = await res.json();
-
-            // render
-            ansEl.textContent = data.answer;
-            citeEl.innerHTML = data.citation
-                ? data.citation.replace(/\n/g, "<br/>")
-                : "—";
-
-            if (data.audio_url) {
-                audioEl.src = data.audio_url;
-                audioEl.onplay = () => avatarEl.src = "/static/avatar talking.mp4";
-                audioEl.onended = () => avatarEl.src = "/static/avatar waiting.mp4";
-                audioEl.play();
-            }
-
-            // re-enable
-            sendBtn.disabled = false;
-            recordBtn.disabled = false;
+        function setAvatarWaiting() {
+            avatarEl.src = avatarWaitingPreload.src;
+            avatarEl.load(); avatarEl.play().catch(() => { });
+        }
+        function setAvatarTalking() {
+            avatarEl.src = avatarTalkingPreload.src;
+            avatarEl.load(); avatarEl.play().catch(() => { });
+        }
+        window.addEventListener("DOMContentLoaded", () => {
+            setAvatarWaiting();
+            avatarTalkingPreload.load();
+            avatarWaitingPreload.load();
         });
 
-        // —— VOICE CHAT ——
+        function renderChat() {
+            chatHistoryEl.innerHTML = "";
+            chatHistory.forEach((msg, idx) => {
+                if (msg.role === "waiting") {
+                    chatHistoryEl.innerHTML += `
+            <div class="msg-row msg-bot waiting-loader-bubble">
+              <div class="waiting-loader">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>`;
+                    return;
+                }
+                const rowClass = msg.role === "user"
+                    ? "msg-row msg-user"
+                    : "msg-row msg-bot";
+                let content = `
+          <div class="msg-bubble" id="bubble-${idx}">
+            ${msg.text || ""}
+          </div>`;
+                if (msg.citation && msg.role === "assistant") {
+                    content += `
+            <div class="citation-list">
+              ${msg.citation.split("\n").map(line => line.trim() ? `- ${line.trim()}` : "").join("<br>")}
+            </div>`;
+                }
+                if (msg.audio) {
+                    content += `
+            <div class="audio-row">
+              <audio controls src="${msg.audio}"></audio>
+            </div>`;
+                }
+                chatHistoryEl.innerHTML += `<div class="${rowClass}">${content}</div>`;
+            });
+            chatHistoryEl.scrollTop = chatHistoryEl.scrollHeight;
+        }
+
+        function addHistory(role, text, audio = null, citation = null) {
+            chatHistory.push({ role, text, audio, citation });
+            renderChat();
+        }
+
+        function showWaitingLoader() {
+            if (!waitingLoaderActive) {
+                waitingLoaderActive = true;
+                chatHistory.push({ role: "waiting" });
+                renderChat();
+            }
+        }
+        function removeWaitingLoader() {
+            if (waitingLoaderActive) {
+                waitingLoaderActive = false;
+                chatHistory = chatHistory.filter(m => m.role !== "waiting");
+                renderChat();
+            }
+        }
+
+        function showTyping(answerText, typingArr, msgIdx, audioUrl, citation) {
+            const bubbleEl = document.getElementById(`bubble-${msgIdx}`);
+            let i = 0;
+            typingInterval = setInterval(() => {
+                if (i < typingArr.length) {
+                    bubbleEl.textContent = typingArr[i++];
+                } else {
+                    clearInterval(typingInterval);
+                    chatHistory[msgIdx].text = answerText;
+                    chatHistory[msgIdx].audio = audioUrl || null;
+                    if (citation) chatHistory[msgIdx].citation = citation;
+                    renderChat();
+                    if (audioUrl) {
+                        audioEl.src = audioUrl;
+                        audioEl.onplay = setAvatarTalking;
+                        audioEl.onended = setAvatarWaiting;
+                        audioEl.play();
+                    } else {
+                        setAvatarWaiting();
+                    }
+                }
+            }, 22 + Math.random() * 8);
+        }
+
+        function lockControls(lock = true) {
+            recordBtn.disabled = lock;
+            stopBtn.disabled = lock;
+            questionEl.disabled = lock;
+            document.getElementById("sendBtn").disabled = lock;
+        }
+
+        // --- Text Chat Handler ---
+        chatForm.addEventListener("submit", async e => {
+            e.preventDefault();
+            const question = questionEl.value.trim();
+            if (!question) return;
+            lockControls(true);
+            addHistory("user", question);
+            setAvatarTalking();
+
+            loaderTimeoutId = setTimeout(showWaitingLoader, 120);
+
+            try {
+                const form = new FormData();
+                form.append("question", question);
+                form.append("history", JSON.stringify(chatHistory.filter(m => m.role !== "waiting")));
+                const res = await fetch("/chat/", { method: "POST", body: form });
+
+                if (loaderTimeoutId) clearTimeout(loaderTimeoutId);
+                removeWaitingLoader();
+
+                if (!res.ok) {
+                    addHistory("assistant", "Oops! Something went wrong. Try again.");
+                    setAvatarWaiting();
+                } else {
+                    const data = await res.json();
+                    const idx = chatHistory.length;
+                    chatHistory.push({ role: "assistant", text: "", audio: null, citation: data.citation });
+                    renderChat();
+                    if (data.typing_simulation) {
+                        showTyping(data.answer, data.typing_simulation, idx, data.audio_url, data.citation);
+                    } else {
+                        chatHistory[idx].text = data.answer;
+                        chatHistory[idx].audio = data.audio_url;
+                        chatHistory[idx].citation = data.citation;
+                        renderChat();
+                        if (data.audio_url) {
+                            audioEl.src = data.audio_url;
+                            audioEl.onplay = setAvatarTalking;
+                            audioEl.onended = setAvatarWaiting;
+                            audioEl.play();
+                        } else setAvatarWaiting();
+                    }
+                }
+            } catch (err) {
+                if (loaderTimeoutId) clearTimeout(loaderTimeoutId);
+                removeWaitingLoader();
+                addHistory("assistant", "Network error—please try again.");
+                setAvatarWaiting();
+            }
+
+            lockControls(false);
+            questionEl.value = "";
+        });
+
+        // --- Voice Recording Handler (STT first) ---
         recordBtn.addEventListener("click", async () => {
             userStream = await navigator.mediaDevices.getUserMedia({ audio: true });
             mediaRecorder = new MediaRecorder(userStream, { mimeType: "audio/webm" });
             audioChunks = [];
-            mediaRecorder.ondataavailable = e => {
+            lockControls(true);
+
+            mediaRecorder.addEventListener("dataavailable", e => {
                 if (e.data.size > 0) audioChunks.push(e.data);
-            };
-            mediaRecorder.onstop = async () => {
+            });
+
+            mediaRecorder.addEventListener("stop", async () => {
+                // 1) Create blob
                 const blob = new Blob(audioChunks, { type: "audio/webm" });
-                const form = new FormData();
-                form.append("audio", blob, "question.webm");
 
-                avatarEl.src = "/static/avatar talking.mp4";
-                const res = await fetch("/ask/", { method: "POST", body: form });
-                const data = await res.json();
+                // 2) Transcribe immediately
+                const sttForm = new FormData();
+                sttForm.append("audio", blob, "q.webm");
+                const sttRes = await fetch("/transcribe/", { method: "POST", body: sttForm });
+                const sttData = await sttRes.json();
+                addHistory("user", sttData.transcript);
 
-                txtEl.textContent = data.transcript;
-                ansEl.textContent = data.answer;
-                citeEl.innerHTML = data.citation
-                    ? data.citation.replace(/\n/g, "<br/>")
-                    : "—";
+                // 3) Then ask chat
+                setAvatarTalking();
+                loaderTimeoutId = setTimeout(showWaitingLoader, 120);
 
-                audioEl.src = data.audio_url;
-                audioEl.onplay = () => avatarEl.src = "/static/avatar talking.mp4";
-                audioEl.onended = () => avatarEl.src = "/static/avatar waiting.mp4";
-                audioEl.play();
+                const chatForm2 = new FormData();
+                chatForm2.append("question", sttData.transcript);
+                chatForm2.append("history", JSON.stringify(chatHistory.filter(m => m.role !== "waiting")));
+                const res = await fetch("/chat/", { method: "POST", body: chatForm2 });
+
+                if (loaderTimeoutId) clearTimeout(loaderTimeoutId);
+                removeWaitingLoader();
+
+                if (!res.ok) {
+                    addHistory("assistant", "Oops! Something went wrong. Try again.");
+                    setAvatarWaiting();
+                } else {
+                    const data = await res.json();
+                    const idx = chatHistory.length;
+                    chatHistory.push({ role: "assistant", text: "", audio: null, citation: data.citation });
+                    renderChat();
+                    if (data.typing_simulation) {
+                        showTyping(data.answer, data.typing_simulation, idx, data.audio_url, data.citation);
+                    } else {
+                        chatHistory[idx].text = data.answer;
+                        chatHistory[idx].audio = data.audio_url;
+                        chatHistory[idx].citation = data.citation;
+                        renderChat();
+                        if (data.audio_url) {
+                            audioEl.src = data.audio_url;
+                            audioEl.onplay = setAvatarTalking;
+                            audioEl.onended = setAvatarWaiting;
+                            audioEl.play();
+                        } else setAvatarWaiting();
+                    }
+                }
 
                 userStream.getTracks().forEach(t => t.stop());
-                recordBtn.disabled = false;
-            };
+                lockControls(false);
+            });
 
             mediaRecorder.start();
-            recordBtn.disabled = true;
             stopBtn.disabled = false;
         });
 
         stopBtn.addEventListener("click", () => {
+            if (mediaRecorder && mediaRecorder.state !== "inactive") mediaRecorder.stop();
             stopBtn.disabled = true;
-            mediaRecorder.stop();
         });
     </script>
 </body>
