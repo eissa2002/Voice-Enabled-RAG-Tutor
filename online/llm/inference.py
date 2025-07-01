@@ -6,21 +6,22 @@ from typing import Tuple
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, project_root)
 
-# Swap out the deprecated Ollama from langchain_community for the new OllamaLLM
 from langchain_ollama import OllamaLLM  
 from online.retrieval.retriever import get_relevant_chunks
 
-# instantiate your local LLM using the new class
+# instantiate your local LLM
 llm = OllamaLLM(model="llama3.1:8b", temperature=0)
 
 def generate_answer(
     chunks,
     question: str,
-    chat_history=None
+    chat_history=None,
+    target_lang: str = "en"
 ) -> Tuple[str, str]:
     """
     Returns (answer_text, citation_text).
-    chat_history: list of dicts [{"role": "user"|"bot", "text": ...}]
+    target_lang: "en" or "ar"
+    chat_history: list of dicts [{"role":"user"|"bot","text":...}]
     """
     if not chunks:
         return "Sorry, I don’t know.", ""
@@ -31,15 +32,19 @@ def generate_answer(
     # Format chat history for prompt
     history_str = ""
     if chat_history:
-        formatted = []
+        lines = []
         for turn in chat_history:
-            if turn.get("role") == "user":
-                formatted.append(f"Student: {turn.get('text')}")
-            else:
-                formatted.append(f"Tutor: {turn.get('text')}")
-        history_str = "\n".join(formatted)
+            prefix = "Student:" if turn.get("role") == "user" else "Tutor:"
+            lines.append(f"{prefix} {turn.get('text')}")
+        history_str = "\n".join(lines)
 
-    # Construct prompt (history + context)
+    # Instruction based on target language
+    if target_lang == "ar":
+        instr = "Answer (in Arabic only):"
+    else:
+        instr = "Answer (in English only):"
+
+    # Construct prompt
     prompt_text = f"""
 You are a knowledgeable AI tutor. Use only the information in the bullets below to answer the student's question.
 Restate or summarize as needed, but do not introduce new concepts.
@@ -52,7 +57,7 @@ Reference context:
 
 Student's new question: {question}
 
-Answer (in English only):
+{instr}
 """.strip()
 
     # Call LLM

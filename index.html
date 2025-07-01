@@ -18,14 +18,12 @@
             margin: 0 auto;
             min-height: 100vh;
             display: flex;
-            align-items: stretch;
             justify-content: center;
         }
 
         .chat-main {
             display: flex;
             width: 100%;
-            min-height: 100vh;
         }
 
         .chat-section {
@@ -36,7 +34,6 @@
             border-radius: 16px 0 0 16px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             position: relative;
-            min-width: 0;
             height: 100vh;
         }
 
@@ -57,12 +54,13 @@
             background: #fafafa;
             border-top: 1px solid #e0e0e0;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 0.5rem;
         }
 
         #chatForm {
             display: flex;
+            flex: 1;
             gap: 0.7rem;
         }
 
@@ -123,7 +121,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
             min-width: 280px;
             height: 100vh;
-            position: relative;
         }
 
         #avatar {
@@ -225,6 +222,15 @@
             }
         }
 
+        .inline-translate {
+            margin-left: 14px;
+            font-size: 0.9rem;
+            background: none;
+            border: none;
+            color: #1976d2;
+            cursor: pointer;
+        }
+
         @media(max-width:900px) {
             .container {
                 padding: 0;
@@ -264,7 +270,7 @@
             }
 
             .chat-input-area {
-                padding: 1rem 0.4rem;
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -276,12 +282,12 @@
             <div class="chat-section">
                 <div class="chat-history" id="chatHistory"></div>
                 <div class="chat-input-area">
-                    <form id="chatForm" autocomplete="off" enctype="multipart/form-data">
+                    <form id="chatForm" autocomplete="off">
                         <input id="questionInput" type="text" placeholder="Type your question…" />
                         <button id="sendBtn">Send</button>
                     </form>
                     <div class="controls">
-                        <button id="recordBtn">🎤 Record Question</button>
+                        <button id="recordBtn">Record Question</button>
                         <button id="stopBtn" disabled>Stop</button>
                     </div>
                 </div>
@@ -295,14 +301,12 @@
             </div>
         </div>
     </div>
+
     <audio id="responseAudio" controls style="display:none"></audio>
 
     <script>
         let mediaRecorder, audioChunks = [], userStream;
-        let chatHistory = [];
-        let waitingLoaderActive = false;
-        let typingInterval = null;
-        let loaderTimeoutId = null;
+        let chatHistory = [], waitingLoaderActive = false, typingInterval, loaderTimeoutId;
 
         const avatarEl = document.getElementById("avatar");
         const recordBtn = document.getElementById("recordBtn");
@@ -311,22 +315,6 @@
         const chatForm = document.getElementById("chatForm");
         const questionEl = document.getElementById("questionInput");
         const chatHistoryEl = document.getElementById("chatHistory");
-        const avatarTalkingPreload = document.getElementById("avatarTalkingPreload");
-        const avatarWaitingPreload = document.getElementById("avatarWaitingPreload");
-
-        function setAvatarWaiting() {
-            avatarEl.src = avatarWaitingPreload.src;
-            avatarEl.load(); avatarEl.play().catch(() => { });
-        }
-        function setAvatarTalking() {
-            avatarEl.src = avatarTalkingPreload.src;
-            avatarEl.load(); avatarEl.play().catch(() => { });
-        }
-        window.addEventListener("DOMContentLoaded", () => {
-            setAvatarWaiting();
-            avatarTalkingPreload.load();
-            avatarWaitingPreload.load();
-        });
 
         function renderChat() {
             chatHistoryEl.innerHTML = "";
@@ -335,9 +323,7 @@
                     chatHistoryEl.innerHTML += `
             <div class="msg-row msg-bot waiting-loader-bubble">
               <div class="waiting-loader">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
+                <div class="dot"></div><div class="dot"></div><div class="dot"></div>
               </div>
             </div>`;
                     return;
@@ -345,23 +331,22 @@
                 const rowClass = msg.role === "user"
                     ? "msg-row msg-user"
                     : "msg-row msg-bot";
-                let content = `
-          <div class="msg-bubble" id="bubble-${idx}">
-            ${msg.text || ""}
-          </div>`;
+
+                let bubble = `<div class="msg-bubble" id="bubble-${idx}">${msg.text || ""}</div>`;
+
                 if (msg.citation && msg.role === "assistant") {
-                    content += `
-            <div class="citation-list">
-              ${msg.citation.split("\n").map(line => line.trim() ? `- ${line.trim()}` : "").join("<br>")}
-            </div>`;
+                    bubble += `<div class="citation-list">${msg.citation.split("\n").map(l => `- ${l}`).join("<br>")
+                        }</div>`;
                 }
                 if (msg.audio) {
-                    content += `
-            <div class="audio-row">
-              <audio controls src="${msg.audio}"></audio>
-            </div>`;
+                    bubble += `<div class="audio-row">
+            <audio controls src="${msg.audio}"></audio>
+          </div>`;
                 }
-                chatHistoryEl.innerHTML += `<div class="${rowClass}">${content}</div>`;
+                if (msg.role === "assistant") {
+                    bubble += `<button class="inline-translate" data-idx="${idx}">Translate</button>`;
+                }
+                chatHistoryEl.innerHTML += `<div class="${rowClass}">${bubble}</div>`;
             });
             chatHistoryEl.scrollTop = chatHistoryEl.scrollHeight;
         }
@@ -370,76 +355,65 @@
             chatHistory.push({ role, text, audio, citation });
             renderChat();
         }
-
-        function showWaitingLoader() {
+        function showLoader() {
             if (!waitingLoaderActive) {
                 waitingLoaderActive = true;
                 chatHistory.push({ role: "waiting" });
                 renderChat();
             }
         }
-        function removeWaitingLoader() {
+        function removeLoader() {
             if (waitingLoaderActive) {
                 waitingLoaderActive = false;
                 chatHistory = chatHistory.filter(m => m.role !== "waiting");
                 renderChat();
             }
         }
-
-        function showTyping(answerText, typingArr, msgIdx, audioUrl, citation) {
-            const bubbleEl = document.getElementById(`bubble-${msgIdx}`);
-            let i = 0;
-            typingInterval = setInterval(() => {
-                if (i < typingArr.length) {
-                    bubbleEl.textContent = typingArr[i++];
-                } else {
-                    clearInterval(typingInterval);
-                    chatHistory[msgIdx].text = answerText;
-                    chatHistory[msgIdx].audio = audioUrl || null;
-                    if (citation) chatHistory[msgIdx].citation = citation;
-                    renderChat();
-                    if (audioUrl) {
-                        audioEl.src = audioUrl;
-                        audioEl.onplay = setAvatarTalking;
-                        audioEl.onended = setAvatarWaiting;
-                        audioEl.play();
-                    } else {
-                        setAvatarWaiting();
-                    }
-                }
-            }, 22 + Math.random() * 8);
-        }
-
-        function lockControls(lock = true) {
+        function lockControls(lock) {
             recordBtn.disabled = lock;
             stopBtn.disabled = lock;
             questionEl.disabled = lock;
             document.getElementById("sendBtn").disabled = lock;
         }
 
-        // --- Text Chat Handler ---
-        chatForm.addEventListener("submit", async e => {
-            e.preventDefault();
-            const question = questionEl.value.trim();
-            if (!question) return;
+        function showTyping(answer, arr, idx, audioUrl, citation) {
+            const bubbleEl = document.getElementById(`bubble-${idx}`);
+            let i = 0;
+            clearInterval(typingInterval);
+            typingInterval = setInterval(() => {
+                if (i < arr.length) {
+                    bubbleEl.textContent = arr[i++];
+                } else {
+                    clearInterval(typingInterval);
+                    chatHistory[idx].text = answer;
+                    chatHistory[idx].audio = audioUrl;
+                    chatHistory[idx].citation = citation;
+                    renderChat();
+                    if (audioUrl) {
+                        audioEl.src = audioUrl;
+                        audioEl.onplay = () => avatarEl.src = document.getElementById("avatarTalkingPreload").src;
+                        audioEl.onended = () => avatarEl.src = document.getElementById("avatarWaitingPreload").src;
+                        audioEl.play();
+                    } else {
+                        avatarEl.src = document.getElementById("avatarWaitingPreload").src;
+                    }
+                }
+            }, 25);
+        }
+
+        async function sendQuestion(text) {
             lockControls(true);
-            addHistory("user", question);
-            setAvatarTalking();
-
-            loaderTimeoutId = setTimeout(showWaitingLoader, 120);
-
+            addHistory("user", text);
+            avatarEl.src = document.getElementById("avatarTalkingPreload").src;
+            showLoader();
             try {
                 const form = new FormData();
-                form.append("question", question);
+                form.append("question", text);
                 form.append("history", JSON.stringify(chatHistory.filter(m => m.role !== "waiting")));
                 const res = await fetch("/chat/", { method: "POST", body: form });
-
-                if (loaderTimeoutId) clearTimeout(loaderTimeoutId);
-                removeWaitingLoader();
-
+                removeLoader();
                 if (!res.ok) {
-                    addHistory("assistant", "Oops! Something went wrong. Try again.");
-                    setAvatarWaiting();
+                    addHistory("assistant", "Oops! Something went wrong.");
                 } else {
                     const data = await res.json();
                     const idx = chatHistory.length;
@@ -454,85 +428,50 @@
                         renderChat();
                         if (data.audio_url) {
                             audioEl.src = data.audio_url;
-                            audioEl.onplay = setAvatarTalking;
-                            audioEl.onended = setAvatarWaiting;
+                            audioEl.onplay = () => avatarEl.src = document.getElementById("avatarTalkingPreload").src;
+                            audioEl.onended = () => avatarEl.src = document.getElementById("avatarWaitingPreload").src;
                             audioEl.play();
-                        } else setAvatarWaiting();
+                        }
                     }
                 }
-            } catch (err) {
-                if (loaderTimeoutId) clearTimeout(loaderTimeoutId);
-                removeWaitingLoader();
+            } catch {
+                removeLoader();
                 addHistory("assistant", "Network error—please try again.");
-                setAvatarWaiting();
             }
-
             lockControls(false);
+        }
+
+        chatForm.addEventListener("submit", e => {
+            e.preventDefault();
+            const q = questionEl.value.trim();
+            if (q) sendQuestion(q);
             questionEl.value = "";
         });
 
-        // --- Voice Recording Handler (STT first) ---
         recordBtn.addEventListener("click", async () => {
             userStream = await navigator.mediaDevices.getUserMedia({ audio: true });
             mediaRecorder = new MediaRecorder(userStream, { mimeType: "audio/webm" });
             audioChunks = [];
             lockControls(true);
-
-            mediaRecorder.addEventListener("dataavailable", e => {
-                if (e.data.size > 0) audioChunks.push(e.data);
-            });
-
-            mediaRecorder.addEventListener("stop", async () => {
-                // 1) Create blob
+            mediaRecorder.ondataavailable = e => { if (e.data.size) audioChunks.push(e.data); };
+            mediaRecorder.onstop = async () => {
+                recordBtn.textContent = "Transcribing…";
                 const blob = new Blob(audioChunks, { type: "audio/webm" });
-
-                // 2) Transcribe immediately
-                const sttForm = new FormData();
-                sttForm.append("audio", blob, "q.webm");
-                const sttRes = await fetch("/transcribe/", { method: "POST", body: sttForm });
-                const sttData = await sttRes.json();
-                addHistory("user", sttData.transcript);
-
-                // 3) Then ask chat
-                setAvatarTalking();
-                loaderTimeoutId = setTimeout(showWaitingLoader, 120);
-
-                const chatForm2 = new FormData();
-                chatForm2.append("question", sttData.transcript);
-                chatForm2.append("history", JSON.stringify(chatHistory.filter(m => m.role !== "waiting")));
-                const res = await fetch("/chat/", { method: "POST", body: chatForm2 });
-
-                if (loaderTimeoutId) clearTimeout(loaderTimeoutId);
-                removeWaitingLoader();
-
-                if (!res.ok) {
-                    addHistory("assistant", "Oops! Something went wrong. Try again.");
-                    setAvatarWaiting();
-                } else {
-                    const data = await res.json();
-                    const idx = chatHistory.length;
-                    chatHistory.push({ role: "assistant", text: "", audio: null, citation: data.citation });
-                    renderChat();
-                    if (data.typing_simulation) {
-                        showTyping(data.answer, data.typing_simulation, idx, data.audio_url, data.citation);
-                    } else {
-                        chatHistory[idx].text = data.answer;
-                        chatHistory[idx].audio = data.audio_url;
-                        chatHistory[idx].citation = data.citation;
-                        renderChat();
-                        if (data.audio_url) {
-                            audioEl.src = data.audio_url;
-                            audioEl.onplay = setAvatarTalking;
-                            audioEl.onended = setAvatarWaiting;
-                            audioEl.play();
-                        } else setAvatarWaiting();
-                    }
-                }
-
-                userStream.getTracks().forEach(t => t.stop());
+                let transcript = "";
+                try {
+                    const sttForm = new FormData();
+                    sttForm.append("audio", blob, "q.webm");
+                    const r = await fetch("/transcribe/", { method: "POST", body: sttForm });
+                    transcript = (await r.json()).transcript || "";
+                } catch { }
+                recordBtn.textContent = "Record Question";
                 lockControls(false);
-            });
-
+                if (!transcript) {
+                    addHistory("assistant", "Sorry—I couldn’t transcribe.");
+                    return;
+                }
+                sendQuestion(transcript);
+            };
             mediaRecorder.start();
             stopBtn.disabled = false;
         });
@@ -540,6 +479,45 @@
         stopBtn.addEventListener("click", () => {
             if (mediaRecorder && mediaRecorder.state !== "inactive") mediaRecorder.stop();
             stopBtn.disabled = true;
+        });
+
+        // inline-translate handler with typing simulation
+        chatHistoryEl.addEventListener("click", async e => {
+            if (!e.target.classList.contains("inline-translate")) return;
+            const btn = e.target;
+            const idx = Number(btn.getAttribute("data-idx"));
+            btn.textContent = "Translating…";
+            btn.disabled = true;
+
+            let translation = "";
+            try {
+                const res = await fetch("/translate/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text: chatHistory[idx].text })
+                });
+                const data = await res.json();
+                translation = data.translation || chatHistory[idx].text;
+            } catch {
+                translation = chatHistory[idx].text;
+            }
+
+            // build typing simulation array
+            const typingArr = [];
+            let temp = "";
+            for (const ch of translation) {
+                temp += ch;
+                typingArr.push(temp);
+            }
+
+            // overwrite with typing simulation
+            showTyping(translation, typingArr, idx, null, chatHistory[idx].citation);
+
+            // restore button after rough delay
+            setTimeout(() => {
+                btn.textContent = "Translate";
+                btn.disabled = false;
+            }, typingArr.length * 25 + 100);
         });
     </script>
 </body>
