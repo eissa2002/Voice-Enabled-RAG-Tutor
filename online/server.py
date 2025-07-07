@@ -17,10 +17,10 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, project_root)
 
 # ─ Pipeline imports ─
-from online.stt.whisper_stt import transcribe
+from online.stt.whisper_stt     import transcribe
 from online.retrieval.retriever import get_relevant_chunks
-from online.llm.inference import generate_answer, llm
-from online.tts.tts_service import synthesize
+from online.llm.inference       import generate_answer, llm
+from online.tts.tts_service     import synthesize
 
 # ─ Logging ─
 logger = logging.getLogger("uvicorn.error")
@@ -68,10 +68,11 @@ G_LOWER = [g.lower() for g in GREETINGS]
 
 def is_greeting(text: str) -> bool:
     t = text.lower().strip()
+    # exact or prefix match
     for g in G_LOWER:
         if t == g or t.startswith(g):
             return True
-    # fuzzy on whole
+    # fuzzy match entire string
     if difflib.get_close_matches(t, G_LOWER, n=1, cutoff=0.8):
         return True
     # fuzzy on first word
@@ -80,7 +81,7 @@ def is_greeting(text: str) -> bool:
         return True
     return False
 
-# ─ Detect language by presence of Arabic chars ─
+# ─ Detect language by Arabic character presence ─
 def detect_language(text: str) -> str:
     if re.search(r'[\u0600-\u06FF]', text):
         return "ar"
@@ -112,8 +113,8 @@ async def serve_index():
 # ─── /chat/ endpoint ───
 @app.post("/chat/")
 async def chat(request: Request):
-    form = await request.form()
-    question = form.get("question", "").strip()
+    form        = await request.form()
+    question    = form.get("question", "").strip()
     history_raw = form.get("history", "[]")
     try:
         chat_history = json.loads(history_raw)
@@ -122,39 +123,36 @@ async def chat(request: Request):
 
     lang = detect_language(question)
 
-    # greeting
+    # ─ Greeting shortcut ─
     if is_greeting(question):
         import random
-        if lang == "ar":
-            answer = random.choice(GREETINGS_RESPONSES_AR)
-        else:
-            answer = random.choice(GREETINGS_RESPONSES_EN)
+        answer   = random.choice(GREETINGS_RESPONSES_AR if lang=="ar" else GREETINGS_RESPONSES_EN)
         citation = ""
     else:
-        # retrieval + LLM
+        # ─ RAG pipeline ─
         chunks = get_relevant_chunks(question, top_k=3)
         if chunks:
-            answer, citation = generate_answer(
-                chunks,
-                question,
-                chat_history,
-                target_lang=lang
-            )
+            # pass target_lang so LLM can translate the answer if needed
+            result = generate_answer(chunks, question, chat_history, target_lang=lang)
+            if isinstance(result, tuple):
+                answer, citation = result
+            else:
+                answer, citation = result, ""
         else:
-            answer = "Sorry, I don’t know." if lang=="en" else "عذراً، لا أعرف."
+            answer   = "Sorry, I don’t know." if lang=="en" else "عذراً، لا أعرف."
             citation = ""
 
-    # TTS
-    uid = uuid.uuid4().hex
+    # ─ TTS ─
+    uid     = uuid.uuid4().hex
     out_wav = os.path.join(audio_dir, f"{uid}_out.wav")
     synthesize(answer, out_wav)
 
     return {
         "transcript": question,
-        "answer": answer,
-        "citation": citation,
-        "audio_url": f"/audio/{uid}_out.wav",
-        "avatar_waiting": "/static/avatar waiting.mp4",
+        "answer":     answer,
+        "citation":   citation,
+        "audio_url":  f"/audio/{uid}_out.wav",
+        "avatar_waiting":  "/static/avatar waiting.mp4",
         "avatar_speaking": "/static/avatar talking.mp4",
         "typing_simulation": make_typing_simulation(answer),
     }
@@ -162,9 +160,11 @@ async def chat(request: Request):
 # ─── /transcribe/ endpoint ───
 @app.post("/transcribe/")
 async def transcribe_audio(audio: UploadFile = File(...)):
-    uid = uuid.uuid4().hex
+    uid     = uuid.uuid4().hex
     in_webm = os.path.join(audio_dir, f"{uid}_in.webm")
     in_wav  = os.path.join(audio_dir, f"{uid}_in.wav")
+
+    # save raw
     with open(in_webm, "wb") as f:
         f.write(await audio.read())
 
@@ -175,6 +175,7 @@ async def transcribe_audio(audio: UploadFile = File(...)):
                 [ffmpeg_bin, "-y", "-i", in_webm, "-ac", "1", "-ar", "16000", in_wav],
                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True
             )
+            # only switch if conversion succeeded
             if os.path.isfile(in_wav) and os.path.getsize(in_wav) > 0:
                 audio_path = in_wav
         except subprocess.CalledProcessError as e:
@@ -191,17 +192,19 @@ async def transcribe_audio(audio: UploadFile = File(...)):
 # ─── /ask/ endpoint ───
 @app.post("/ask/")
 async def ask(audio: UploadFile = File(...), request: Request = None):
-    form = await request.form()
+    form        = await request.form()
     history_raw = form.get("history", "[]")
     try:
         chat_history = json.loads(history_raw)
     except json.JSONDecodeError:
         chat_history = []
 
-    uid = uuid.uuid4().hex
+    uid     = uuid.uuid4().hex
     in_webm = os.path.join(audio_dir, f"{uid}_in.webm")
     in_wav  = os.path.join(audio_dir, f"{uid}_in.wav")
     out_wav = os.path.join(audio_dir, f"{uid}_out.wav")
+
+    # save raw
     with open(in_webm, "wb") as f:
         f.write(await audio.read())
 
@@ -226,29 +229,34 @@ async def ask(audio: UploadFile = File(...), request: Request = None):
 
     lang = detect_language(question)
 
+    # decide response
     if not question.strip():
-        answer = "Sorry, I couldn't understand the question." if lang=="en" else "عذراً، لم أتمكن من الفهم."
+        answer   = "Sorry, I couldn't understand the question." if lang=="en" else "عذراً، لم أتمكن من الفهم."
         citation = ""
     elif is_greeting(question):
         import random
-        answer = random.choice(GREETINGS_RESPONSES_AR if lang=="ar" else GREETINGS_RESPONSES_EN)
+        answer   = random.choice(GREETINGS_RESPONSES_AR if lang=="ar" else GREETINGS_RESPONSES_EN)
         citation = ""
     else:
         chunks = get_relevant_chunks(question, top_k=3)
         if chunks:
-            answer, citation = generate_answer(chunks, question, chat_history, target_lang=lang)
+            result = generate_answer(chunks, question, chat_history, target_lang=lang)
+            if isinstance(result, tuple):
+                answer, citation = result
+            else:
+                answer, citation = result, ""
         else:
-            answer = "Sorry, I don’t know." if lang=="en" else "عذراً، لا أعرف."
+            answer   = "Sorry, I don’t know." if lang=="en" else "عذراً، لا أعرف."
             citation = ""
 
     synthesize(answer, out_wav)
 
     return {
         "transcript": question,
-        "answer": answer,
-        "citation": citation,
-        "audio_url": f"/audio/{uid}_out.wav",
-        "avatar_waiting": "/static/avatar waiting.mp4",
+        "answer":     answer,
+        "citation":   citation,
+        "audio_url":  f"/audio/{uid}_out.wav",
+        "avatar_waiting":  "/static/avatar waiting.mp4",
         "avatar_speaking": "/static/avatar talking.mp4",
         "typing_simulation": make_typing_simulation(answer),
     }
@@ -258,19 +266,20 @@ async def ask(audio: UploadFile = File(...), request: Request = None):
 async def translate_text(request: Request):
     body = await request.json()
     text = body.get("text", "")
-    # detect original
-    original_lang = detect_language(text)
-    target = "en" if original_lang=="ar" else "ar"
+
+    # detect source lang
+    orig   = detect_language(text)
+    target = "en" if orig=="ar" else "ar"
 
     if target == "ar":
         prompt = (
             f"Translate the following English text into Arabic. "
-            f"Only return the translated text, nothing else:\n\n{text}\n\nالترجمة:"
+            f"Only return the translated text:\n\n{text}\n\nالترجمة:"
         )
     else:
         prompt = (
             f"Translate the following text into English. "
-            f"Only return the translated text, nothing else:\n\n{text}\n\nTranslation:"
+            f"Only return the translated text:\n\n{text}\n\nTranslation:"
         )
 
     try:
@@ -278,7 +287,7 @@ async def translate_text(request: Request):
         translation = resp.generations[0][0].text.strip()
     except Exception as e:
         logger.error(f"Translation failed: {e}")
-        translation = ""
+        translation = text
 
     return {"translation": translation, "citation": "- Translated by AI"}
 
